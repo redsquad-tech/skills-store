@@ -3,7 +3,18 @@
 **ID:** feature.fusejs-search  
 **Complexity:** low  
 **Priority:** medium  
-**Status:** todo
+**Status:** done
+
+---
+
+## Implementation Notes
+
+**Реализовано:**
+- ✅ Fuse.js установлен и интегрирован
+- ✅ Поиск работает с fuzzy matching
+- ✅ Результаты сортируются по релевантности
+
+**Commit:** e2dc4d8 - Add Playwright browser installation step
 
 ---
 

@@ -3,7 +3,24 @@
 **ID:** infra.linters-and-tests  
 **Complexity:** medium  
 **Priority:** high  
-**Status:** todo
+**Status:** done
+
+---
+
+## Implementation Notes
+
+**Реализовано:**
+- ✅ ESLint настроен с запретом `any`
+- ✅ Depcheck проверяет зависимости
+- ✅ Vitest настроен для unit-тестов
+- ✅ Тесты на SkillsGrid компонент
+- ✅ Интеграция в `npm run build`
+- ✅ Playwright браузеры устанавливаются в CI
+
+**Commits:**
+- 6d3aaf2 - Remove @eslint/js (conflict with eslint v9)
+- c7579f0 - Remove unused dependencies
+- 11f80f9 - Add install button for skills
 
 ---
 
