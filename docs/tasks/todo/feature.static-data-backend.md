@@ -179,9 +179,9 @@ MVP-логика:
 ## Requirements
 
 ### Генератор каталога
-- Node.js или Python script
-- Запуск только из make
-- Next.js только потребляет готовые .json
+- Node.js script
+- Запуск через `npm run generate` перед `npm run build`
+- Next.js только потребляет готовые .json из `public/data/`
 
 ### Схема нормализованных JSON
 - Описанная структура данных
@@ -204,7 +204,8 @@ MVP-логика:
 
 ## Acceptance Criteria
 
-- [ ] После `make store-build` появляются все JSON-индексы в `store/public/data/`
+- [ ] После `npm run build` появляются все JSON-индексы в `store/public/data/`
+- [ ] `npm run build` запускает генератор каталога перед сборкой Next.js
 - [ ] `next.config.mjs` содержит `output: 'export'`
 - [ ] Каталогная страница (`app/page.tsx`) — серверный компонент
 - [ ] Страница скилла (`app/skill/[slug]/page.tsx`) — серверный компонент с `generateStaticParams()`
@@ -393,30 +394,20 @@ export default async function SkillPage({ params }: { params: { slug: string } }
 }
 ```
 
-### 5. Создание Makefile
+### 5. Обновление package.json скриптов
 
-**Проблема:** Нет единой точки входа для сборки.
+В `store/package.json`:
 
-**Решение:** Создать `Makefile` в корне проекта:
-
-```makefile
-.PHONY: install check store-build build
-
-install:
-	cd store && npm install
-
-check:
-	@echo "Checking skills catalog..."
-	@./scripts/validate-skills.sh
-
-store-build:
-	@echo "Generating static data..."
-	@./scripts/generate-catalog.js
-	@echo "Building Next.js app..."
-	cd store && npm run build
-
-build: check store-build
-	@echo "Build complete. Output in store/out/"
+```json
+{
+  "scripts": {
+    "dev": "next dev",
+    "build": "npm run generate && next build",
+    "start": "npx serve out",
+    "lint": "eslint .",
+    "generate": "node ../scripts/generate-catalog.js"
+  }
+}
 ```
 
 ### 6. Создание генератора каталога
@@ -560,31 +551,9 @@ out/
 
 `public/data/` не игнорируется — это артефакты сборки, которые должны быть в репозитории для статического экспорта.
 
-### 8. Обновление package.json скриптов
+### 8. Установка зависимостей для генератора
 
-В `store/package.json`:
-
-```json
-{
-  "scripts": {
-    "dev": "next dev",
-    "build": "npm run generate && next build",
-    "start": "npx serve out",
-    "lint": "eslint .",
-    "generate": "node ../scripts/generate-catalog.js"
-  }
-}
-```
-
-### 9. Установка зависимостей для генератора
-
-В корне проекта:
-
-```bash
-npm install js-yaml
-```
-
-Или в `package.json` корня:
+В `store/package.json` добавить зависимость:
 
 ```json
 {
@@ -592,4 +561,11 @@ npm install js-yaml
     "js-yaml": "^4.1.0"
   }
 }
+```
+
+Или установить:
+
+```bash
+cd store
+npm install js-yaml --save-dev
 ```
