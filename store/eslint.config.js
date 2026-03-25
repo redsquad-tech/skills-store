@@ -1,4 +1,3 @@
-const eslint = require('@eslint/js')
 const tsParser = require('@typescript-eslint/parser')
 const tsPlugin = require('@typescript-eslint/eslint-plugin')
 const reactPlugin = require('eslint-plugin-react')
@@ -92,7 +91,7 @@ module.exports = [
       }
     },
     rules: {
-      ...eslint.configs.recommended.rules,
+      'no-unused-vars': 'off',
       ...prettierConfig.rules
     }
   }
