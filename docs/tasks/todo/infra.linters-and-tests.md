@@ -244,11 +244,12 @@ describe('SkillsGrid', () => {
 ```json
 {
   "scripts": {
-    "dev": "concurrently \"next dev\" \"npm run lint:watch\" \"npm run test:watch\"",
+    "dev": "npm run dev:next",
+    "dev:next": "next dev",
+    "dev:test": "vitest",
     "build": "npm run generate && npm run lint && npm run test && next build",
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --fix",
-    "lint:watch": "esw --watch --ext .ts,.tsx",
     "lint:deps": "depcheck --ignores=eslint,prettier,@types/*",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -257,9 +258,23 @@ describe('SkillsGrid', () => {
 }
 ```
 
-**Дополнительные зависимости:**
-- `concurrently@^8.2.0` — для параллельного запуска dev сервера с линтером и тестами
-- `eslint-watch@^8.0.0` — для линтинга в watch режиме
+**Интеграция с Next.js:**
+
+Next.js имеет встроенную ESLint интеграцию:
+- `next build` — автоматически запускает ESLint (можно отключить через `eslint.ignoreDuringBuilds`)
+- `next dev` — можно включить watch через `eslint.configFile`
+
+**В dev режиме:**
+- Запустить `npm run dev` в одном терминале (Next.js + ESLint watch)
+- Запустить `npm run dev:test` в другом терминале (Vitest watch)
+
+**Альтернатива (опционально):**
+```bash
+npm install --save-dev concurrently
+```
+```json
+"dev": "concurrently \"next dev\" \"vitest\""
+```
 
 ---
 
@@ -282,20 +297,30 @@ npm run build
 
 ### Требование: проверки в dev режиме
 
-При разработке (`npm run dev`) должно работать:
-- Next.js dev сервер с hot reload
-- ESLint watch — проверяет изменённые файлы
-- Vitest watch — запускает тесты при изменениях
+При разработке используется встроенный ESLint от Next.js:
 
+**Вариант 1: Два терминала (рекомендуется)**
 ```bash
+# Терминал 1: Next.js dev + ESLint watch
 npm run dev
-# Запускает параллельно:
-# - next dev
-# - eslint-watch (проверка при изменении .ts/.tsx)
-# - vitest (тесты при изменении)
+
+# Терминал 2: Vitest watch
+npm run dev:test
 ```
 
-**Важно:** Проверки в dev режиме не должны блокировать работу, только уведомлять об ошибках в консоли.
+**Вариант 2: Concurrently (опционально)**
+```bash
+npm install --save-dev concurrently
+npm run dev
+# Запускает параллельно: next dev + vitest
+```
+
+**Next.js ESLint интеграция:**
+- По умолчанию `next dev` проверяет ESLint при изменении файлов
+- Ошибки показываются в консоли и браузере
+- Не блокирует hot reload (только предупреждения)
+
+**Важно:** ESLint от Next.js работает автоматически, не нужен `eslint-watch`.
 
 ---
 
@@ -315,8 +340,10 @@ npm run dev
 - [ ] Все тесты проходят в CI
 - [ ] `npm run build` запускает линт и тесты перед сборкой
 - [ ] Билд падает если линт или тесты не прошли
-- [ ] `npm run dev` запускает watch режим для линта и тестов
-- [ ] Изменения файлов триггерят перепроверку
+- [ ] `npm run dev` запускает Next.js с ESLint watch
+- [ ] `npm run dev:test` запускает Vitest watch
+- [ ] Изменения файлов триггерят перепроверку ESLint и тестов
+- [ ] Не используется `eslint-watch` (встроенный Next.js ESLint)
 
 ---
 
@@ -403,18 +430,18 @@ import '@testing-library/jest-dom'
 ### 3. Обновить package.json
 
 Добавить скрипты:
-- `dev` — параллельный запуск next dev + lint watch + test watch
+- `dev` — запуск next dev (ESLint watch встроен)
+- `dev:test` — vitest watch в отдельном терминале
 - `build` — generate + lint + test + next build
-- `lint:fix`
-- `lint:watch` — eslint-watch для dev режима
-- `lint:deps`
-- `test`
-- `test:watch`
-- `test:coverage`
+- `lint` — eslint . --max-warnings 0
+- `lint:fix` — eslint с авто-исправлением
+- `lint:deps` — depcheck
+- `test` — vitest run
+- `test:watch` — vitest
+- `test:coverage` — vitest с coverage
 
-**Добавить зависимости:**
-- `concurrently` — для параллельного запуска в dev
-- `eslint-watch` — для lint в watch режиме
+**Опционально:**
+- `concurrently` — для запуска next dev + vitest в одном терминале
 
 ### 4. Написать тесты
 
@@ -461,15 +488,22 @@ npm run test
     "@typescript-eslint/parser": "^7.0.0",
     "@vitejs/plugin-react": "^4.2.0",
     "@vitest/coverage-v8": "^1.3.0",
-    "concurrently": "^8.2.0",
     "depcheck": "^1.4.7",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.34.0",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-watch": "^8.0.0",
     "jsdom": "^24.0.0",
     "vitest": "^1.3.0"
+  }
+}
+```
+
+**Опционально (для удобства):**
+```json
+{
+  "devDependencies": {
+    "concurrently": "^8.2.0"
   }
 }
 ```
@@ -488,13 +522,14 @@ npm run test
 **Порядок выполнения:**
 1. Установить зависимости
 2. Создать конфиги (`.eslintrc.cjs`, `vitest.config.ts`, `tests/setup.ts`)
-3. Обновить package.json (скрипты build/dev с проверками)
+3. Обновить package.json (скрипты build/dev)
 4. Написать тесты
 5. Исправить ошибки линтера
 6. Проверить что `npm run build` запускает линт и тесты
-7. Проверить что `npm run dev` запускает watch режим
-8. Обновить CI
-9. Задокументировать в README
+7. Проверить что `npm run dev` работает с ESLint watch (встроенный)
+8. Проверить что `npm run dev:test` запускает Vitest watch
+9. Обновить CI
+10. Задокументировать в README
 
 **Ссылки:**
 - [ESLint TypeScript](https://typescript-eslint.io/)
