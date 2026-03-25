@@ -1,17 +1,16 @@
 "use client"
 
 import { useState, useMemo } from "react"
-import type { Skill, SkillSearchIndex, TagsIndex } from "@/lib/skills-data"
+import type { Skill, TagsIndex } from "@/lib/skills-data"
 import { SkillsSearch } from "@/components/skills-search"
 import { SkillCard } from "@/components/skill-card"
 
 interface SkillsGridProps {
   skills: Skill[]
-  searchIndex: SkillSearchIndex[]
   tags: TagsIndex
 }
 
-export function SkillsGrid({ skills, searchIndex, tags }: SkillsGridProps) {
+export function SkillsGrid({ skills, tags }: SkillsGridProps) {
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
 
@@ -45,7 +44,6 @@ export function SkillsGrid({ skills, searchIndex, tags }: SkillsGridProps) {
   return (
     <div className="space-y-6">
       <SkillsSearch
-        searchIndex={searchIndex}
         tags={tags}
         onSearchChange={handleSearchChange}
         onTagSelect={handleTagSelect}

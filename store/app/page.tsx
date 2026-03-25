@@ -8,14 +8,13 @@ function getData() {
   const dataDir = path.join(process.cwd(), 'public', 'data')
   
   const catalog = JSON.parse(fs.readFileSync(path.join(dataDir, 'catalog.json'), 'utf-8'))
-  const searchIndex = JSON.parse(fs.readFileSync(path.join(dataDir, 'search-index.json'), 'utf-8'))
   const tags = JSON.parse(fs.readFileSync(path.join(dataDir, 'tags.json'), 'utf-8'))
 
-  return { catalog, searchIndex, tags }
+  return { catalog, tags }
 }
 
 export default async function Home() {
-  const { catalog, searchIndex, tags } = getData()
+  const { catalog, tags } = getData()
 
   return (
     <div className="min-h-screen bg-[#ffffff]">
@@ -74,7 +73,7 @@ export default async function Home() {
 
         <section className="py-10 md:py-12">
           <div className="max-w-5xl mx-auto px-6">
-            <SkillsGrid skills={catalog} searchIndex={searchIndex} tags={tags} />
+            <SkillsGrid skills={catalog} tags={tags} />
           </div>
         </section>
 

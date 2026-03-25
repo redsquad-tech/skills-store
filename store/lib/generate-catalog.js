@@ -26,7 +26,7 @@ function validateSkill(slug, metadata) {
   return errors
 }
 
-function normalizeSkill(slug, metadata, skillContent = '') {
+function normalizeSkill(slug, metadata) {
   const tags = metadata.catalog?.tags || []
   const searchAliases = metadata.catalog?.search_aliases || []
   
@@ -82,7 +82,6 @@ function main() {
 
   for (const slug of skillsDirs) {
     const metadataPath = path.join(SKILLS_DIR, slug, 'metadata.yml')
-    const skillPath = path.join(SKILLS_DIR, slug, 'SKILL.md')
     
     if (!fs.existsSync(metadataPath)) {
       errors.push(`metadata.yml not found for ${slug}`)
@@ -98,12 +97,7 @@ function main() {
         continue
       }
       
-      let skillContent = ''
-      if (fs.existsSync(skillPath)) {
-        skillContent = fs.readFileSync(skillPath, 'utf8')
-      }
-      
-      const skill = normalizeSkill(slug, metadata, skillContent)
+      const skill = normalizeSkill(slug, metadata)
       catalog.push(skill)
       
       skill.tags.forEach(tag => {

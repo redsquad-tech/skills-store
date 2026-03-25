@@ -1,7 +1,7 @@
 import fs from "fs"
 import path from "path"
 import { notFound } from "next/navigation"
-import { ArrowLeft, ExternalLink, Check, AlertTriangle, Scale, GitBranch, CheckCircle2 } from "lucide-react"
+import { ArrowLeft, ExternalLink, Scale, GitBranch, CheckCircle2 } from "lucide-react"
 import { Header } from "@/components/header"
 import { statusLabels, statusColors, type Skill } from "@/lib/skills-data"
 import Link from "next/link"

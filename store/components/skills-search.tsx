@@ -1,10 +1,9 @@
 "use client"
 
 import { Search } from "lucide-react"
-import type { SkillSearchIndex, TagsIndex } from "@/lib/skills-data"
+import type { TagsIndex } from "@/lib/skills-data"
 
 interface SkillsSearchProps {
-  searchIndex: SkillSearchIndex[]
   tags: TagsIndex
   onSearchChange: (query: string) => void
   onTagSelect: (tag: string) => void
@@ -12,7 +11,6 @@ interface SkillsSearchProps {
 }
 
 export function SkillsSearch({
-  searchIndex,
   tags,
   onSearchChange,
   onTagSelect,
