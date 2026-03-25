@@ -1,0 +1,70 @@
+source:
+  repo: "https://github.com/redsquad-tech/is-goose"
+  path: "agent/.agents/skills/tasks"
+  branch: "distro"
+  url: "https://github.com/redsquad-tech/is-goose/tree/distro/agent/.agents/skills/tasks"
+  imported_at: "2026-03-25"
+
+catalog:
+  slug: "tasks"
+  title: "Tasks"
+  tags:
+    - "tasks"
+    - "todo"
+    - "bugs"
+    - "issue-tracking"
+    - "project-management"
+  search_aliases:
+    - "задачи"
+    - "таски"
+    - "todo"
+    - "баги"
+    - "ошибки"
+    - "статус задач"
+    - "закрыть задачу"
+    - "создать задачу"
+    - "task tracker"
+
+skill:
+  name: "tasks"
+  description: >
+    use this in the case user asks you to create a new task, to check the status
+    of existing tasks, to close tasks, and to register bugs. Also use this skill
+    to get the most important task to work on.
+
+review:
+  status: "reviewed"
+  summary: >
+    Skill для работы с задачами: создание новых задач, проверка статуса,
+    закрытие задач, регистрация багов и выбор наиболее важной задачи.
+  reviewed_by: "store-team"
+  reviewed_at: "2026-03-25"
+
+license:
+  id: "TBD"
+  url: ""
+  notes: "Уточнить лицензию исходного репозитория перед публикацией."
+
+risk:
+  network: false
+  shell: false
+  writes_files: true
+  reads_files: true
+  secrets: false
+
+tests:
+  has_official_evals: false
+  eval_mode: "generated"
+  scenarios:
+    - "Создать новую задачу по описанию пользователя"
+    - "Показать статус существующей задачи"
+    - "Закрыть задачу по идентификатору или названию"
+    - "Зарегистрировать баг"
+    - "Определить самую приоритетную задачу"
+  last_run: "2026-03-25"
+  notes: "Для скилла не было явных evals; используются сгенерированные smoke-сценарии."
+
+policy:
+  featured: false
+  hidden: false
+  replacement: ""

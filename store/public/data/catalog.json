@@ -1,0 +1,41 @@
+[
+  {
+    "slug": "tasks",
+    "title": "Tasks",
+    "short_description": "use this in the case user asks you to create a new task, to check the status of existing tasks, to close tasks, and to register bugs. Also use this skill to get the most important task to work on.\n",
+    "full_description": "use this in the case user asks you to create a new task, to check the status of existing tasks, to close tasks, and to register bugs. Also use this skill to get the most important task to work on.\n",
+    "tags": [
+      "tasks",
+      "todo",
+      "bugs",
+      "issue-tracking",
+      "project-management"
+    ],
+    "search_aliases": [
+      "задачи",
+      "таски",
+      "todo",
+      "баги",
+      "ошибки",
+      "статус задач",
+      "закрыть задачу",
+      "создать задачу",
+      "task tracker"
+    ],
+    "source": {
+      "url": "https://github.com/redsquad-tech/is-goose/tree/distro/agent/.agents/skills/tasks",
+      "label": "https://github.com/redsquad-tech/is-goose"
+    },
+    "license": {
+      "id": "TBD",
+      "url": ""
+    },
+    "review": {
+      "status": "reviewed",
+      "summary": "Skill для работы с задачами: создание новых задач, проверка статуса, закрытие задач, регистрация багов и выбор наиболее важной задачи.\n",
+      "reviewed_at": "2026-03-25"
+    },
+    "guarantees": [],
+    "updated_at": "2026-03-25"
+  }
+]

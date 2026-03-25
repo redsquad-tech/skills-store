@@ -2,7 +2,7 @@
 
 **ID:** feature.static-data-backend  
 **Complexity:** L  
-**Status:** todo
+**Status:** done
 
 ---
 
@@ -204,15 +204,39 @@ MVP-логика:
 
 ## Acceptance Criteria
 
-- [ ] После `npm run build` появляются все JSON-индексы в `store/public/data/`
-- [ ] `npm run build` запускает генератор каталога перед сборкой Next.js
-- [ ] `next.config.mjs` содержит `output: 'export'`
-- [ ] Каталогная страница (`app/page.tsx`) — серверный компонент
-- [ ] Страница скилла (`app/skill/[slug]/page.tsx`) — серверный компонент с `generateStaticParams()`
-- [ ] Поиск работает полностью на клиенте (в client component)
-- [ ] Страницы всех скиллов собираются статически в `store/out/`
-- [ ] При битых данных build падает с понятной ошибкой
-- [ ] В `store/public/data/manifest.json` есть commit SHA и build timestamp
+- [x] После `npm run build` появляются все JSON-индексы в `store/public/data/`
+- [x] `npm run build` запускает генератор каталога перед сборкой Next.js
+- [x] `next.config.mjs` содержит `output: 'export'`
+- [x] Каталогная страница (`app/page.tsx`) — серверный компонент
+- [x] Страница скилла (`app/skill/[slug]/page.tsx`) — серверный компонент с `generateStaticParams()`
+- [x] Поиск работает полностью на клиенте (в client component)
+- [x] Страницы всех скиллов собираются статически в `store/out/`
+- [x] При битых данных build падает с понятной ошибкой
+- [x] В `store/public/data/manifest.json` есть commit SHA и build timestamp
+
+## Implementation Notes
+
+**Modified files:**
+- `store/next.config.mjs` — добавлен `output: 'export'`
+- `store/package.json` — добавлены скрипты `generate` и обновлён `build`, добавлена зависимость `js-yaml`
+- `store/lib/skills-data.ts` — новые типы и функции для загрузки JSON
+- `store/app/page.tsx` — конвертирован в серверный компонент
+- `store/app/skill/[slug]/page.tsx` — конвертирован в серверный компонент с `generateStaticParams()`
+- `store/components/skill-card.tsx` — обновлён под новую модель данных
+- `store/components/skills-search.tsx` — обновлён под новую модель данных
+- `store/components/skills-grid.tsx` — новый клиентский компонент для поиска
+
+**Created files:**
+- `scripts/generate-catalog.js` — генератор каталога из `skills/*/metadata.yml`
+- `store/public/data/catalog.json` — полный каталог скиллов
+- `store/public/data/search-index.json` — индекс для поиска
+- `store/public/data/tags.json` — теги со счётчиками
+- `store/public/data/manifest.json` — метаданные сборки
+
+**Build output:**
+- `store/out/` — статический экспорт Next.js
+
+**Latest commit:** TBD
 
 ---
 

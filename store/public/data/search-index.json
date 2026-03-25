@@ -1,0 +1,24 @@
+[
+  {
+    "slug": "tasks",
+    "title": "Tasks",
+    "tags": [
+      "tasks",
+      "todo",
+      "bugs",
+      "issue-tracking",
+      "project-management"
+    ],
+    "search_aliases": [
+      "задачи",
+      "таски",
+      "todo",
+      "баги",
+      "ошибки",
+      "статус задач",
+      "закрыть задачу",
+      "создать задачу",
+      "task tracker"
+    ]
+  }
+]
