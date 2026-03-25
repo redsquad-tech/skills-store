@@ -5,15 +5,16 @@ Given('я нахожусь на главной странице каталога
 })
 
 When('я кликаю на тег {string}', async function(tag) {
-  await this.getPage().getByText(tag).click()
+  await this.getPage().getByRole('button', { name: tag }).click()
 })
 
 Then('я вижу отфильтрованные скиллы с {string}', async function(skillName) {
-  await this.getPage().getByText(skillName).waitFor({ state: 'visible' })
+  await this.getPage().getByRole('heading', { name: skillName }).waitFor({ state: 'visible' })
 })
 
 When('я кликаю на карточку скилла {string}', async function(skillName) {
-  await this.getPage().getByRole('link', { name: skillName }).click()
+  const page = this.getPage()
+  await page.locator('a', { has: page.getByRole('heading', { name: skillName }) }).click()
 })
 
 Then('я вижу страницу скилла с заголовком {string}', async function(title) {
