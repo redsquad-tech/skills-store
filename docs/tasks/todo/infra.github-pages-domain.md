@@ -1,4 +1,4 @@
-# Настройка GitHub Pages для store.insightstream.ru
+# Настройка custom domain для store.insightstream.ru
 
 **ID:** infra.github-pages-domain  
 **Complexity:** low  
@@ -9,14 +9,16 @@
 
 ## Problem
 
-Для публикации сайта на кастомном домене store.insightstream.ru требуется ручная настройка в GitHub и DNS.
+GitHub Pages настроен и деплой работает. Сайт доступен на https://redsquad-tech.github.io/skills-store/
+
+Требуется настроить custom domain store.insightstream.ru через GitHub UI и DNS.
 
 ---
 
 ## Scope
 
 ### In
-- Настройка GitHub Pages в settings репозитория
+- Настройка custom domain в GitHub Pages settings
 - Настройка DNS записей у регистратора домена
 - Проверка HTTPS сертификата
 
@@ -28,17 +30,17 @@
 
 ## Requirements
 
-### 1. GitHub Pages Settings
+### 1. Настроить Custom Domain в GitHub
 
 В GitHub repository settings:
 
 1. Перейти в **Settings → Pages**
-2. В разделе **Build and deployment**:
-   - Source: **GitHub Actions** (не "Deploy from a branch")
-3. В разделе **Custom domain**:
+2. В разделе **Custom domain**:
    - Ввести: `store.insightstream.ru`
    - Нажать **Save**
-   - Поставить галочку **Enforce HTTPS** (появится после проверки DNS)
+3. После проверки DNS поставить галочку **Enforce HTTPS**
+
+> ⚠️ **Важно:** Не менять Source — уже настроен GitHub Actions
 
 ### 2. DNS настройки
 
@@ -51,48 +53,27 @@
 | A   | store | 185.199.110.153 | 3600 |
 | A   | store | 185.199.111.153 | 3600 |
 
-**Или CNAME (альтернатива):**
-
-| Тип | Имя | Значение | TTL |
-|-----|-----|----------|-----|
-| CNAME | store | redsquad-tech.github.io | 3600 |
-
-**Рекомендуется использовать A записи** для лучшей производительности.
-
-### 3. Проверка
-
-После настройки:
-
-1. Подождать propagation DNS (до 24 часов, обычно 5-30 минут)
-2. Проверить доступность: `https://store.insightstream.ru`
-3. Убедиться, что HTTPS работает
-4. Проверить, что workflow деплоя запускается при push в main
-
 ---
 
 ## Acceptance Criteria
 
-- [ ] В Settings → Pages выбран источник "GitHub Actions"
-- [ ] В Settings → Pages указан custom domain `store.insightstream.ru`
+- [ ] Custom domain `store.insightstream.ru` указан в GitHub Pages settings
 - [ ] DNS записи настроены у регистратора
 - [ ] Сайт доступен по https://store.insightstream.ru
 - [ ] HTTPS сертификат активен
-- [ ] Workflow деплоя работает при push в main
 
 ---
 
 ## Implementation Notes
 
-**Созданные файлы:**
-- `.github/workflows/deploy.yml` — workflow для деплоя
-- `store/public/CNAME` — файл с доменным именем для GitHub Pages
-- `store/next.config.mjs` — обновлён с `basePath: ''`
+**Автоматически настроено (через gh CLI):**
+- ✅ GitHub Pages включён
+- ✅ Environment github-pages настроен (protected branches)
+- ✅ Workflow `.github/workflows/deploy.yml` работает
+- ✅ Деплой при push в main
+- ✅ `store/public/CNAME` файл создан
 
-**Порядок выполнения:**
-1. Выполнить эту задачу (настроить DNS и GitHub Pages)
-2. Сделать push в main — запустится деплой
-3. Проверить доступность сайта
+**Текущий URL:** https://redsquad-tech.github.io/skills-store/
 
 **Ссылки:**
-- [GitHub Pages custom domain docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)
-- [GitHub Pages IP addresses](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)
+- [GitHub Pages custom domain](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)
