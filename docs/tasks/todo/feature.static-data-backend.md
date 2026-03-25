@@ -34,35 +34,36 @@
 
 Backend в MVP = генератор данных, а не сервер.
 
-Генератор запускается из make и создаёт в `store/.generated/`:
+Генератор запускается из make и создаёт в `store/public/data/`:
 
 | Файл | Описание |
 |------|----------|
 | `catalog.json` | Полный список карточек для build-time генерации |
 | `search-index.json` | Облегчённый индекс для поиска на клиенте |
 | `tags.json` | Список тегов и счётчики |
-| `skills/<slug>.json` | Нормализованная карточка скилла |
 | `manifest.json` | Build metadata: commit SHA, build time, basePath, версия схемы |
 
 ### Нормализованная модель скилла
 
-Минимальные поля:
+Маппинг из metadata.yml в нормализованную модель:
 
-- `slug`
-- `title`
-- `short_description`
-- `full_description`
-- `tags[]`
-- `search_aliases[]`
-- `source.url`
-- `source.label`
-- `license.id`
-- `license.url`
-- `review.status`
-- `review.summary`
-- `review.reviewed_at`
-- `guarantees[]`
-- `updated_at`
+| Поле модели | Источник в metadata.yml |
+|-------------|-------------------------|
+| `slug` | Имя папки + проверка `catalog.slug` |
+| `title` | `catalog.title` |
+| `short_description` | `skill.description` |
+| `full_description` | `skill.description` + контент из `SKILL.md` |
+| `tags[]` | `catalog.tags` (lowercase, unique) |
+| `search_aliases[]` | `catalog.search_aliases` (lowercase) |
+| `source.url` | `source.url` |
+| `source.label` | `source.repo` или `source.url` |
+| `license.id` | `license.id` |
+| `license.url` | `license.url` |
+| `review.status` | `review.status` |
+| `review.summary` | `review.summary` |
+| `review.reviewed_at` | `review.reviewed_at` |
+| `guarantees[]` | Пусто (резерв) |
+| `updated_at` | `source.imported_at` |
 
 ### Правила нормализации
 
@@ -72,6 +73,88 @@ Backend в MVP = генератор данных, а не сервер.
 - Гарантировать уникальность slug
 - Гарантировать совпадение slug с именем папки
 - Падать с ошибкой, если нет обязательных полей: `title`, `source`, `license`
+
+### Структура каталога skills/
+
+Каждый скилл хранится в отдельной папке:
+
+```text
+skills/
+  └── <slug>/
+      ├── SKILL.md           # Описание скилла (Markdown с frontmatter)
+      └── metadata.yml       # Метаданные для каталога
+```
+
+**Пример metadata.yml:**
+
+```yaml
+source:
+  repo: "https://github.com/example/repo"
+  path: "path/to/skill"
+  branch: "main"
+  url: "https://github.com/example/repo/tree/main/path/to/skill"
+  imported_at: "2026-03-25"
+
+catalog:
+  slug: "my-skill"
+  title: "My Skill"
+  tags:
+    - "tag1"
+    - "tag2"
+  search_aliases:
+    - "алиас 1"
+    - "алиас 2"
+
+skill:
+  name: "my-skill"
+  description: "Краткое описание"
+
+review:
+  status: "reviewed"
+  summary: "Описание проверки"
+  reviewed_by: "reviewer-name"
+  reviewed_at: "2026-03-25"
+
+license:
+  id: "MIT"
+  url: "https://opensource.org/licenses/MIT"
+  notes: "Комментарий"
+
+risk:
+  network: false
+  shell: false
+  writes_files: true
+  reads_files: true
+  secrets: false
+
+tests:
+  has_official_evals: false
+  eval_mode: "generated"
+  scenarios: []
+  last_run: "2026-03-25"
+
+policy:
+  featured: false
+  hidden: false
+  replacement: ""
+```
+
+### Алгоритм обхода skills/
+
+1. Сканировать директорию `skills/` на наличие подпапок
+2. Для каждой подпапки `<slug>/`:
+   - Проверить наличие `metadata.yml` (обязательно)
+   - Проверить наличие `SKILL.md` (обязательно)
+   - Извлечь `slug` из имени папки
+   - Сверить `catalog.slug` в metadata.yml с именем папки
+3. Распарсить `metadata.yml` и извлечь поля:
+   - `catalog.slug`, `catalog.title`, `catalog.tags[]`, `catalog.search_aliases[]`
+   - `skill.name`, `skill.description`
+   - `source.url`, `source.repo`
+   - `license.id`, `license.url`
+   - `review.status`, `review.summary`, `review.reviewed_at`
+4. Валидировать обязательные поля: `title`, `source.url`, `license.id`
+5. Нормализовать данные и добавить в каталог
 
 ### Поиск (клиентский)
 
@@ -88,7 +171,7 @@ MVP-логика:
 ### Как фронтенд использует данные
 
 - Каталог загружает `search-index.json` в браузере
-- Страница скилла генерируется статически из `catalog.json` или `skills/<slug>.json`
+- Страница скилла генерируется статически из `catalog.json`
 - Маршрут `/skills/[slug]` должен быть полностью известен на этапе build через `generateStaticParams()`
 
 ---
@@ -121,14 +204,14 @@ MVP-логика:
 
 ## Acceptance Criteria
 
-- [ ] После `make store-build` появляются все JSON-индексы в `store/.generated/`
+- [ ] После `make store-build` появляются все JSON-индексы в `store/public/data/`
 - [ ] `next.config.mjs` содержит `output: 'export'`
 - [ ] Каталогная страница (`app/page.tsx`) — серверный компонент
 - [ ] Страница скилла (`app/skill/[slug]/page.tsx`) — серверный компонент с `generateStaticParams()`
 - [ ] Поиск работает полностью на клиенте (в client component)
 - [ ] Страницы всех скиллов собираются статически в `store/out/`
 - [ ] При битых данных build падает с понятной ошибкой
-- [ ] В `store/.generated/manifest.json` есть commit SHA и build timestamp
+- [ ] В `store/public/data/manifest.json` есть commit SHA и build timestamp
 
 ---
 
@@ -160,7 +243,7 @@ const nextConfig = {
 
 **Проблема:** Данные захардкожены в массиве `skills`.
 
-**Решение:** Заменить на чтение из `.generated/catalog.json`:
+**Решение:** Заменить на чтение из `public/data/catalog.json`:
 
 ```ts
 // Удалить массив skills и все хардкод-данные
@@ -194,7 +277,7 @@ export type Skill = {
 
 // Функция для загрузки данных на клиенте
 export async function loadCatalog(): Promise<Skill[]> {
-  const res = await fetch('/.generated/catalog.json')
+  const res = await fetch('/data/catalog.json')
   if (!res.ok) throw new Error('Failed to load catalog')
   return res.json()
 }
@@ -203,7 +286,7 @@ export async function loadCatalog(): Promise<Skill[]> {
 export function getCatalog(): Skill[] {
   // В server components можно импортировать JSON напрямую
   // или читать через fs на этапе build
-  return require('@/app/.generated/catalog.json')
+  return require('@/public/data/catalog.json')
 }
 ```
 
@@ -348,15 +431,123 @@ const path = require('path')
 const yaml = require('js-yaml')
 
 const SKILLS_DIR = path.join(__dirname, '..', 'skills')
-const OUTPUT_DIR = path.join(__dirname, '..', 'store', '.generated')
+const OUTPUT_DIR = path.join(__dirname, '..', 'store', 'public', 'data')
 
-// Чтение всех skills
-// Парсинг metadata.yml
-// Валидация обязательных полей
-// Генерация catalog.json, search-index.json, tags.json, manifest.json
-// Проверка целостности
+// 1. Создать OUTPUT_DIR если не существует
+// 2. Сканировать skills/ на наличие подпапок
+// 3. Для каждой папки:
+//    - Прочитать metadata.yml
+//    - Прочитать SKILL.md (опционально, для полного описания)
+//    - Валидировать обязательные поля
+//    - Нормализовать данные
+// 4. Сгенерировать:
+//    - catalog.json — полный список скиллов
+//    - search-index.json — облегчённый индекс для поиска
+//    - tags.json — список тегов со счётчиками
+//    - manifest.json — metadata сборки
 
-console.log('Catalog generated successfully')
+function validateSkill(slug, metadata) {
+  const errors = []
+  
+  if (!metadata.catalog?.title) {
+    errors.push(`Missing catalog.title for ${slug}`)
+  }
+  if (!metadata.source?.url) {
+    errors.push(`Missing source.url for ${slug}`)
+  }
+  if (!metadata.license?.id) {
+    errors.push(`Missing license.id for ${slug}`)
+  }
+  if (metadata.catalog?.slug !== slug) {
+    errors.push(`Slug mismatch: folder="${slug}", metadata="${metadata.catalog?.slug}"`)
+  }
+  
+  return errors
+}
+
+function normalizeSkill(slug, metadata) {
+  return {
+    slug: slug,
+    title: metadata.catalog.title,
+    short_description: metadata.skill.description,
+    full_description: metadata.skill.description, // можно дополнить из SKILL.md
+    tags: metadata.catalog.tags.map(t => t.toLowerCase()),
+    search_aliases: metadata.catalog.search_aliases.map(a => a.toLowerCase()),
+    source: {
+      url: metadata.source.url,
+      label: metadata.source.repo || metadata.source.url
+    },
+    license: {
+      id: metadata.license.id,
+      url: metadata.license.url
+    },
+    review: {
+      status: metadata.review.status,
+      summary: metadata.review.summary,
+      reviewed_at: metadata.review.reviewed_at
+    },
+    guarantees: [],
+    updated_at: metadata.source.imported_at
+  }
+}
+
+// Main
+const skillsDirs = fs.readdirSync(SKILLS_DIR)
+  .filter(dir => fs.statSync(path.join(SKILLS_DIR, dir)).isDirectory())
+
+const catalog = []
+const allTags = {}
+
+for (const slug of skillsDirs) {
+  const metadataPath = path.join(SKILLS_DIR, slug, 'metadata.yml')
+  const skillPath = path.join(SKILLS_DIR, slug, 'SKILL.md')
+  
+  if (!fs.existsSync(metadataPath)) {
+    console.error(`Error: metadata.yml not found for ${slug}`)
+    process.exit(1)
+  }
+  
+  const metadata = yaml.load(fs.readFileSync(metadataPath, 'utf8'))
+  const errors = validateSkill(slug, metadata)
+  
+  if (errors.length > 0) {
+    console.error(`Validation errors for ${slug}:`)
+    errors.forEach(e => console.error(`  - ${e}`))
+    process.exit(1)
+  }
+  
+  const skill = normalizeSkill(slug, metadata)
+  catalog.push(skill)
+  
+  // Собрать теги
+  skill.tags.forEach(tag => {
+    allTags[tag] = (allTags[tag] || 0) + 1
+  })
+}
+
+// Сгенерировать search-index (облегчённая версия)
+const searchIndex = catalog.map(s => ({
+  slug: s.slug,
+  title: s.title,
+  tags: s.tags,
+  search_aliases: s.search_aliases
+}))
+
+// Записать файлы
+fs.mkdirSync(OUTPUT_DIR, { recursive: true })
+fs.writeFileSync(path.join(OUTPUT_DIR, 'catalog.json'), JSON.stringify(catalog, null, 2))
+fs.writeFileSync(path.join(OUTPUT_DIR, 'search-index.json'), JSON.stringify(searchIndex, null, 2))
+fs.writeFileSync(path.join(OUTPUT_DIR, 'tags.json'), JSON.stringify(allTags, null, 2))
+
+const manifest = {
+  commit_sha: process.env.GITHUB_SHA || 'local',
+  build_time: new Date().toISOString(),
+  base_path: process.env.SITE_BASE_PATH || '/',
+  schema_version: '1.0.0'
+}
+fs.writeFileSync(path.join(OUTPUT_DIR, 'manifest.json'), JSON.stringify(manifest, null, 2))
+
+console.log(`Generated catalog with ${catalog.length} skills`)
 ```
 
 ### 7. Настройка .gitignore
@@ -364,9 +555,10 @@ console.log('Catalog generated successfully')
 Добавить в `store/.gitignore`:
 
 ```
-.generated/
 out/
 ```
+
+`public/data/` не игнорируется — это артефакты сборки, которые должны быть в репозитории для статического экспорта.
 
 ### 8. Обновление package.json скриптов
 
@@ -376,10 +568,28 @@ out/
 {
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "npm run generate && next build",
+    "start": "npx serve out",
     "lint": "eslint .",
     "generate": "node ../scripts/generate-catalog.js"
+  }
+}
+```
+
+### 9. Установка зависимостей для генератора
+
+В корне проекта:
+
+```bash
+npm install js-yaml
+```
+
+Или в `package.json` корня:
+
+```json
+{
+  "devDependencies": {
+    "js-yaml": "^4.1.0"
   }
 }
 ```
