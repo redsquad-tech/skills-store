@@ -4,8 +4,8 @@ const fs = require('fs')
 const path = require('path')
 const yaml = require('js-yaml')
 
-const SKILLS_DIR = path.join(__dirname, '..', 'skills')
-const OUTPUT_DIR = path.join(__dirname, '..', 'store', 'public', 'data')
+const SKILLS_DIR = path.join(__dirname, '..', '..', 'skills')
+const OUTPUT_DIR = path.join(__dirname, '..', 'public', 'data')
 
 function validateSkill(slug, metadata) {
   const errors = []

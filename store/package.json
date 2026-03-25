@@ -7,7 +7,7 @@
     "build": "npm run generate && next build",
     "start": "npx serve out",
     "lint": "eslint .",
-    "generate": "node ../scripts/generate-catalog.js"
+    "generate": "node lib/generate-catalog.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
