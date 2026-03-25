@@ -156,10 +156,17 @@ export default async function SkillPage({ params }: { params: Promise<{ slug: st
             <div className="space-y-4">
               <div className="bg-white border border-[#e5e7eb] rounded-lg p-5 sticky top-20">
                 <a 
+                  href={`isgoose://skill/${skill.slug}`}
+                  role="button"
+                  className="flex items-center justify-center gap-2 w-full h-11 bg-[#2563eb] text-white font-medium rounded-lg hover:bg-[#1d4ed8] transition-colors"
+                >
+                  Установить
+                </a>
+                <a 
                   href={skill.source.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full h-11 bg-[#111827] text-white font-medium rounded-lg hover:bg-[#1f2937] transition-colors"
+                  className="flex items-center justify-center gap-2 w-full h-11 mt-3 bg-[#111827] text-white font-medium rounded-lg hover:bg-[#1f2937] transition-colors"
                 >
                   <ExternalLink className="w-4 h-4" />
                   Открыть источник

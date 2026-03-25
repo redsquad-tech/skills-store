@@ -15,6 +15,7 @@ Then('я вижу отфильтрованные скиллы с {string}', asyn
 When('я кликаю на карточку скилла {string}', async function(skillName) {
   const page = this.getPage()
   await page.locator('a', { has: page.getByRole('heading', { name: skillName }) }).click()
+  await page.waitForURL(/\/skill\//)
 })
 
 Then('я вижу страницу скилла с заголовком {string}', async function(title) {
@@ -36,10 +37,9 @@ When('я кликаю на кнопку {string}', async function(buttonName) {
 
 Then('браузер переходит по deeplink {string}', async function(deeplink) {
   const page = this.getPage()
-  const protocol = deeplink.split('://')[0]
-  await page.waitForURL(new RegExp('^' + protocol + '://'))
-  const currentUrl = page.url()
-  if (!currentUrl.match(new RegExp('^' + protocol + '://'))) {
-    throw new Error('Expected URL to match ' + protocol + '://, got ' + currentUrl)
+  const button = page.getByRole('button', { name: 'Установить' })
+  const href = await button.getAttribute('href')
+  if (href !== deeplink) {
+    throw new Error('Expected href to be "' + deeplink + '", got "' + href + '"')
   }
 })
