@@ -30,7 +30,6 @@ export default async function Home() {
             <p className="text-base md:text-lg text-[#6b7280] max-w-2xl mx-auto mb-10 leading-relaxed">
               Каталог скиллов для работы с документами, файлами, отчётами и рутинными задачами. У каждого скилла указан источник, лицензия и статус проверки.
             </p>
-            <SkillsGrid skills={catalog} searchIndex={searchIndex} tags={tags} />
           </div>
         </section>
 
@@ -70,6 +69,12 @@ export default async function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="py-10 md:py-12">
+          <div className="max-w-5xl mx-auto px-6">
+            <SkillsGrid skills={catalog} searchIndex={searchIndex} tags={tags} />
           </div>
         </section>
 
