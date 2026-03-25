@@ -19,9 +19,10 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
   const skills = getSkills()
-  const skill = skills.find(s => s.slug === params.slug)
+  const skill = skills.find(s => s.slug === slug)
   
   return {
     title: `${skill?.title} | Skill Store`,
@@ -29,9 +30,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-export default async function SkillPage({ params }: { params: { slug: string } }) {
+export default async function SkillPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
   const skills = getSkills()
-  const skill = skills.find((s) => s.slug === params.slug)
+  const skill = skills.find((s) => s.slug === slug)
 
   if (!skill) {
     notFound()
