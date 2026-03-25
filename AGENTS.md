@@ -5,8 +5,6 @@
 **URL:** https://redsquad-tech.github.io/skills-store/  
 **Домен:** store.insightstream.ru (требует настройки DNS)
 
----
-
 ## Архитектура
 
 ```
@@ -28,8 +26,6 @@
     ├── todo/                  # Активные задачи
     └── done/                  # Завершённые задачи
 ```
-
----
 
 ## Принципы разработки
 
@@ -73,8 +69,6 @@ Feature: Название функции
 - `store/tests/e2e/hooks.js` — Хуки (Before/After)
 - `store/tests/e2e/browser.js` — Playwright браузер
 
----
-
 ## Команды разработки
 
 ### Установка зависимостей
@@ -84,20 +78,11 @@ cd store
 npm install
 ```
 
-### Запуск dev сервера
-
-```bash
-npm run dev
-# Next.js на localhost:3000 + Vitest watch
-```
-
 ### Запуск тестов
 
 **Unit тесты (Vitest):**
 ```bash
 npm run test          # Один запуск
-npm run test:watch    # Watch режим
-npm run test:coverage # С покрытием
 ```
 
 **E2E тесты (Cucumber + Playwright):**
@@ -112,14 +97,6 @@ npm run test:e2e
 ```
 
 **Важно:** `test:e2e` использует порт **3001**, не конфликтует с dev (3000)
-
-### Линтинг
-
-```bash
-npm run lint          # Проверка ESLint
-npm run lint:fix      # Авто-исправление
-npm run lint:deps     # Проверка unused зависимостей (depcheck)
-```
 
 ### Сборка
 
@@ -139,8 +116,6 @@ npm run build
 - Есть unused зависимости
 - Unit тесты упали
 - E2E тесты упали
-
----
 
 ## Добавление skills
 
@@ -179,8 +154,6 @@ license:
   id: "Apache-2.0"
   url: "https://www.apache.org/licenses/LICENSE-2.0"
 ```
-
----
 
 ## BDD: Написание новых сценариев
 
@@ -222,30 +195,12 @@ Then('вижу результат', async function() {
 npm run test:e2e
 ```
 
----
-
-## CI/CD
-
-**GitHub Actions:** `.github/workflows/deploy.yml`
-
-1. Checkout репозитория
-2. Setup Node.js 20
-3. Install dependencies
-4. Build (генерация + линт + тесты + экспорт)
-5. Upload artifact в GitHub Pages
-
-**Деплой:** Автоматически при push в `main`
-
----
-
 ## Переменные окружения
 
 | Переменная | Описание | Пример |
 |------------|----------|--------|
 | `TEST_BASE_URL` | URL для E2E тестов | `http://localhost:3001` |
 | `SITE_BASE_PATH` | Base path для GitHub Pages | `/skills-store` |
-
----
 
 ## Структура тестов
 
@@ -260,40 +215,6 @@ store/tests/
 │       └── install-skill.steps.js # Step definitions
 └── *.test.tsx                  # Unit тесты
 ```
-
----
-
-## Решение проблем
-
-### Тесты не находят элементы
-
-Проверить selector в DevTools:
-```javascript
-await page.getByRole('button', { name: 'текст' }).click()
-```
-
-### Билд падает на линте
-
-```bash
-npm run lint:fix  # Авто-исправление
-```
-
-### E2E тесты таймаутятся
-
-Увеличить таймаут в step definition:
-```javascript
-Then('шаг', async function() {
-  await this.getPage().waitForTimeout(1000)
-  // ...
-}, { timeout: 10000 })
-```
-
-### Конфликт портов
-
-- Dev сервер: порт 3000
-- E2E тесты: порт 3001
-
----
 
 ## Ссылки
 
