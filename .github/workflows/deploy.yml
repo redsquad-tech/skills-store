@@ -31,6 +31,11 @@ jobs:
           cd store
           npm ci
       
+      - name: Install Playwright browsers
+        run: |
+          cd store
+          npx playwright install --with-deps chromium
+      
       - name: Build
         run: |
           cd store
