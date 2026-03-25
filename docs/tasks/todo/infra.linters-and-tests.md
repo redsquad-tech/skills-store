@@ -245,7 +245,7 @@ describe('SkillsGrid', () => {
 {
   "scripts": {
     "dev": "concurrently \"next dev\" \"vitest\"",
-    "build": "npm run generate && npm run lint && npm run test && next build",
+    "build": "npm run generate && npm run lint && npm run lint:deps && npm run test && next build",
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --fix",
     "lint:deps": "depcheck --ignores=eslint,prettier,@types/*",
@@ -279,15 +279,16 @@ Next.js имеет встроенную ESLint интеграцию:
 `npm run build` должен выполнять:
 1. Генерацию каталога (`npm run generate`)
 2. Линтинг (`npm run lint`) — падает при ошибках
-3. Тесты (`npm run test`) — падает при провалах
-4. Сборку Next.js (`next build`)
+3. Проверку зависимостей (`npm run lint:deps`) — падает при unused зависимостях
+4. Тесты (`npm run test`) — падает при провалах
+5. Сборку Next.js (`next build`)
 
 ```bash
 npm run build
-# = npm run generate && npm run lint && npm run test && next build
+# = npm run generate && npm run lint && npm run lint:deps && npm run test && next build
 ```
 
-**Если линт или тесты падают — билд прерывается.**
+**Если линт, depcheck или тесты падают — билд прерывается.**
 
 ### Требование: проверки в dev режиме
 
@@ -323,8 +324,8 @@ npm run dev
   - Пустой результат
 - [ ] Coverage > 80% для components/
 - [ ] Все тесты проходят в CI
-- [ ] `npm run build` запускает линт и тесты перед сборкой
-- [ ] Билд падает если линт или тесты не прошли
+- [ ] `npm run build` запускает линт, depcheck и тесты перед сборкой
+- [ ] Билд падает если линт, depcheck или тесты не прошли
 - [ ] `npm run dev` запускает Next.js с ESLint watch и Vitest watch
 - [ ] Изменения файлов триггерят перепроверку ESLint и тестов
 - [ ] Не используется `eslint-watch` (встроенный Next.js ESLint)
@@ -456,6 +457,8 @@ npm run test
     npm run test
 ```
 
+Или использовать `npm run build` который уже включает все проверки.
+
 ---
 
 ## Implementation Notes
@@ -501,7 +504,7 @@ npm run test
 3. Обновить package.json (скрипты build/dev с concurrently)
 4. Написать тесты
 5. Исправить ошибки линтера
-6. Проверить что `npm run build` запускает линт и тесты
+6. Проверить что `npm run build` запускает линт, depcheck и тесты
 7. Проверить что `npm run dev` запускает Next.js + Vitest параллельно
 8. Обновить CI
 9. Задокументировать в README
