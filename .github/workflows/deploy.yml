@@ -39,7 +39,7 @@ jobs:
       - name: Build
         run: |
           cd store
-          npm run build
+          npm run build:pages
           
       - name: Inspect export
         run: |

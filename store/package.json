@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "concurrently \"next dev\" \"vitest\"",
     "build": "npm run generate && npm run lint && npm run lint:deps && npm run test && npm run test:e2e && next build",
+    "build:pages": "npm run generate && next build && npm run search:index",
     "start": "npx serve out",
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --fix",
