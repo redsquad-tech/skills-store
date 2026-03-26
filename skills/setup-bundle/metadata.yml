@@ -1,0 +1,39 @@
+catalog:
+  slug: setup-bundle
+  title: Setup Bundle
+
+skill:
+  name: setup_bundle
+  description: >
+    Use this skill when you need to initialize or verify the bundle environment.
+    It installs required dependencies, prepares the vault, and ensures that all tools
+    are available for other skills to function correctly.
+
+tags:
+  - "setup"
+  - "installation"
+  - "environment"
+  - "bootstrap"
+  - "devops"
+
+search_aliases:
+  - "setup bundle"
+  - "install dependencies"
+  - "инициализация"
+  - "установить окружение"
+  - "prepare environment"
+
+review:
+  status: "reviewed"
+  summary: >
+    Handles installation and verification of the bundle environment and dependencies.
+  reviewed_by: "store-team"
+  reviewed_at: "2026-03-26"
+
+source:
+  url: "https://github.com/redsquad-tech/skills-store/tree/main/skills/setup-bundle"
+  repo: "https://github.com/redsquad-tech/skills-store"
+
+license:
+  id: MIT
+  notes: "Уточнить лицензию перед публикацией."

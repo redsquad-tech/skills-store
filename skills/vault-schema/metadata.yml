@@ -1,0 +1,44 @@
+catalog:
+  slug: vault-schema
+  title: "Vault Schema"
+  tags:
+    - "vault"
+    - "markdown"
+    - "data-model"
+    - "schema"
+    - "knowledge-base"
+    - "file-structure"
+  search_aliases:
+    - "vault structure"
+    - "data schema"
+    - "где лежат данные"
+    - "структура данных"
+    - "структура vault"
+    - "markdown база"
+    - "схема хранения"
+    - "как устроен vault"
+
+source:
+  url: "https://github.com/redsquad-tech/skills-store/tree/main/skills/vault-schema"
+  repo: "https://github.com/redsquad-tech/skills-store"
+  
+skill:
+  name: vault_schema
+  description: >
+    Use this skill when you need to understand how data is structured in the local vault.
+    It defines where different entities (mail, events, contacts, documents, drafts)
+    are stored, what metadata they contain, and how they are linked together.
+    This skill should be used before reading or writing any files in the vault.
+
+review:
+  status: "reviewed"
+  summary: >
+    Defines the canonical vault structure, including folders, entity types,
+    frontmatter schema, and linking rules. Acts as the foundation for all other skills.
+  reviewed_by: "store-team"
+  reviewed_at: "2026-03-26"
+
+
+license:
+  id: MIT
+  notes: "Уточнить лицензию перед публикацией."

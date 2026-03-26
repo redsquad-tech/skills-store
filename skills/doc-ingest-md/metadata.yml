@@ -1,0 +1,45 @@
+catalog:
+  slug: doc-ingest-md
+  title: "Document Ingest to Markdown"
+  tags:
+    - "documents"
+    - "markdown"
+    - "conversion"
+    - "ingest"
+    - "pdf"
+    - "docx"
+    - "text-processing"
+  search_aliases:
+    - "convert document"
+    - "pdf в markdown"
+    - "docx в markdown"
+    - "обработать документ"
+    - "прочитать файл"
+    - "ingest docs"
+    - "index documents"
+    - "document parsing"
+
+source:
+  url: "https://github.com/redsquad-tech/skills-store/tree/main/skills/doc-ingest-md"
+  repo: "https://github.com/redsquad-tech/skills-store"
+  
+skill:
+  name: doc_ingest_md
+  description: >
+    Use this skill when you need to convert documents into Markdown for further processing.
+    It takes files from the vault docs/source directory, converts them into Markdown format,
+    and saves the results into docs/derived-md.
+    This enables the agent to read, search, and analyze document content.
+
+review:
+  status: "reviewed"
+  summary: >
+    Defines the canonical vault structure, including folders, entity types,
+    frontmatter schema, and linking rules. Acts as the foundation for all other skills.
+  reviewed_by: "store-team"
+  reviewed_at: "2026-03-26"
+
+
+license:
+  id: MIT
+  notes: "Уточнить лицензию перед публикацией."

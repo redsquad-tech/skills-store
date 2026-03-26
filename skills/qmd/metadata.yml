@@ -1,0 +1,39 @@
+catalog:
+  slug: qmd
+  title: QMD Search
+
+skill:
+  name: qmd_search
+  description: >
+    Use this skill when you need to search across the local vault.
+    It allows you to find relevant information in Markdown files including documents,
+    emails, events, and notes using full-text search.
+
+tags:
+  - "search"
+  - "markdown"
+  - "indexing"
+  - "local-search"
+  - "knowledge-base"
+
+search_aliases:
+  - "search vault"
+  - "найти в документах"
+  - "поиск по markdown"
+  - "find document"
+  - "full text search"
+
+review:
+  status: "reviewed"
+  summary: >
+    Provides local full-text search using qmd across all markdown files in the vault.
+  reviewed_by: "store-team"
+  reviewed_at: "2026-03-26"
+
+source:
+  url: "https://github.com/redsquad-tech/skills-store/tree/main/skills/qmd"
+  repo: "https://github.com/redsquad-tech/skills-store"
+
+license:
+  id: MIT
+  notes: "Уточнить лицензию перед публикацией."
