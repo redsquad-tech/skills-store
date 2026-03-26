@@ -40,6 +40,11 @@ jobs:
         run: |
           cd store
           npm run build
+          
+      - name: Inspect export
+        run: |
+          cd store
+          find out -maxdepth 3 -type f | sort
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
