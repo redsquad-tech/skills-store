@@ -1,0 +1,57 @@
+name: business-md-bundle
+version: 0.1.0
+
+vault:
+  root: ./vault
+
+profiles:
+  core:
+    - git
+    - node
+    - python
+  docs:
+    - qmd
+    - markitdown
+  mail:
+    - weavmail
+  calendar:
+    - sogcli
+  cloud:
+    - rclone
+  google:
+    - gogcli
+  audio:
+    - transcribe
+  all:
+    - git
+    - node
+    - python
+    - qmd
+    - markitdown
+    - weavmail
+    - sogcli
+    - rclone
+    - gogcli
+    - transcribe
+
+tools:
+  git:
+    command: git --version
+  node:
+    command: node --version
+  python:
+    command: python3 --version
+  qmd:
+    command: qmd --help
+  markitdown:
+    command: markitdown --help
+  weavmail:
+    command: weavmail --help
+  sogcli:
+    command: sogcli --help
+  rclone:
+    command: rclone version
+  gogcli:
+    command: gogcli --help
+  transcribe:
+    command: python3 -m whisper --help
