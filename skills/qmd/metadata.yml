@@ -1,6 +1,18 @@
 catalog:
   slug: qmd
   title: Поиск по базе знаний
+  tags:
+    - "search"
+    - "markdown"
+    - "indexing"
+    - "local-search"
+    - "knowledge-base"
+  search_aliases:
+    - "search vault"
+    - "найти в документах"
+    - "поиск по markdown"
+    - "find document"
+    - "full text search"
 
 skill:
   name: qmd_search
@@ -8,20 +20,6 @@ skill:
     Use this skill when you need to search across the local vault.
     It allows you to find relevant information in Markdown files including documents,
     emails, events, and notes using full-text search.
-
-tags:
-  - "search"
-  - "markdown"
-  - "indexing"
-  - "local-search"
-  - "knowledge-base"
-
-search_aliases:
-  - "search vault"
-  - "найти в документах"
-  - "поиск по markdown"
-  - "find document"
-  - "full text search"
 
 review:
   status: "reviewed"

@@ -22,7 +22,7 @@ if (Test-Path $BundleFile) {
   Write-Warn "bundle.yml is missing"
 }
 
-$checks = @("git", "node", "python")
+$checks = @("git", "node", "python", "uv", "qmd", "weavmail", "markitdown", "rclone")
 foreach ($cmd in $checks) {
   if (Test-CommandExists $cmd) {
     Write-Info "$cmd found"

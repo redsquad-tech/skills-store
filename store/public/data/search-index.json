@@ -55,6 +55,27 @@
     ]
   },
   {
+    "slug": "mail-md",
+    "title": "Почта в Markdown (mail flow)",
+    "tags": [
+      "mail",
+      "email",
+      "imap",
+      "weavmail",
+      "vault",
+      "threads",
+      "markdown"
+    ],
+    "search_aliases": [
+      "mail md",
+      "sync mail",
+      "imap to markdown",
+      "thread notes",
+      "почта в markdown",
+      "синк почты"
+    ]
+  },
+  {
     "slug": "pdf",
     "title": "Анализ PDF",
     "tags": [
@@ -85,8 +106,20 @@
   {
     "slug": "qmd",
     "title": "Поиск по базе знаний",
-    "tags": [],
-    "search_aliases": []
+    "tags": [
+      "search",
+      "markdown",
+      "indexing",
+      "local-search",
+      "knowledge-base"
+    ],
+    "search_aliases": [
+      "search vault",
+      "найти в документах",
+      "поиск по markdown",
+      "find document",
+      "full text search"
+    ]
   },
   {
     "slug": "screenshot",

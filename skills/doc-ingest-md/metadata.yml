@@ -37,8 +37,8 @@ skill:
 review:
   status: "reviewed"
   summary: >
-    Defines the canonical vault structure, including folders, entity types,
-    frontmatter schema, and linking rules. Acts as the foundation for all other skills.
+    Converts source documents from vault/docs/source into markdown files in
+    vault/docs/derived-md with metadata for indexing and downstream search.
   reviewed_by: "store-team"
   reviewed_at: "2026-03-26"
 

@@ -1,0 +1,43 @@
+source:
+  repo: "https://github.com/redsquad-tech/skills-store"
+  path: "main/skills/mail-md"
+  branch: "main"
+  url: "https://github.com/redsquad-tech/skills-store/tree/main/skills/mail-md"
+  imported_at: "2026-03-30"
+
+catalog:
+  slug: mail-md
+  title: "Почта в Markdown (mail flow)"
+  tags:
+    - "mail"
+    - "email"
+    - "imap"
+    - "weavmail"
+    - "vault"
+    - "threads"
+    - "markdown"
+  search_aliases:
+    - "mail md"
+    - "sync mail"
+    - "imap to markdown"
+    - "thread notes"
+    - "почта в markdown"
+    - "синк почты"
+
+skill:
+  name: mail_md
+  description: >
+    Syncs mail into vault markdown layout: raw messages and per-thread notes.
+    Supports local markdown flow and weavmail-based IMAP sync.
+
+review:
+  status: "basic-tested"
+  summary: >
+    Implements D1 local markdown mail flow and D2 weavmail integration
+    into vault/mail/raw and vault/mail/threads with links and thread notes.
+  reviewed_by: "store-team"
+  reviewed_at: "2026-03-30"
+
+license:
+  id: MIT
+  notes: "Уточнить лицензию перед публикацией."
