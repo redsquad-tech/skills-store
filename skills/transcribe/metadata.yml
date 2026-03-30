@@ -2,7 +2,7 @@ source:
   repo: "https://github.com/openai/skills"
   path: "main/skills/.curated/transcribe"
   branch: "main"
-  url: "https://github.com/openai/skills/tree/main/skills/.transcribe/slides"
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/transcribe"
   imported_at: "2026-03-30"
 
 catalog:

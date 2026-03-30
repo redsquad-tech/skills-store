@@ -218,7 +218,7 @@
       "calculate metrics"
     ],
     "source": {
-      "url": "https://github.com/openai/skills/tree/main/skills/.spreadsheet/slides",
+      "url": "https://github.com/openai/skills/tree/main/skills/.curated/spreadsheet",
       "label": "https://github.com/openai/skills"
     },
     "license": {
@@ -301,7 +301,7 @@
       "сделай текст из записи"
     ],
     "source": {
-      "url": "https://github.com/openai/skills/tree/main/skills/.transcribe/slides",
+      "url": "https://github.com/openai/skills/tree/main/skills/.curated/transcribe",
       "label": "https://github.com/openai/skills"
     },
     "license": {

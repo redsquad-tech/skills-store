@@ -2,7 +2,7 @@ source:
   repo: "https://github.com/openai/skills"
   path: "main/skills/.curated/spreadsheet"
   branch: "main"
-  url: "https://github.com/openai/skills/tree/main/skills/.spreadsheet/slides"
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/spreadsheet"
   imported_at: "2026-03-30"
 
 catalog:
