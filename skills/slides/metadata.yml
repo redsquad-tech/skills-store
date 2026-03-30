@@ -1,0 +1,58 @@
+source:
+  repo: "https://github.com/openai/skills"
+  path: "main/skills/.curated/slides"
+  branch: "main"
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/slides"
+  imported_at: "2026-03-30"
+
+catalog:
+  slug: "slides"
+  title: "Работа с презентациями"
+  tags:
+    - "presentations"
+    - "slides"
+    - "ppt"
+    - "pptx"
+    - "document-analysis"
+    - "content-extraction"
+    - "visual-content"
+  search_aliases:
+    - "презентация"
+    - "слайды"
+    - "прочитать презентацию"
+    - "анализ презентации"
+    - "что в слайдах"
+    - "извлечь текст из презентации"
+    - "ppt"
+    - "pptx"
+    - "powerpoint"
+    - "google slides"
+    - "прочитай слайды"
+    - "найди в презентации"
+    - "разбери презентацию"
+    - "extract slides content"
+    - "analyze presentation"
+
+skill:
+  name: "slides"
+  description: >
+    Create and edit presentation slide decks (`.pptx`) with PptxGenJS, bundled layout helpers, and render/validation utilities. 
+    Use when tasks involve building a new PowerPoint deck, recreating slides from screenshots/PDFs/reference decks, modifying slide content while preserving editable output, 
+    adding charts/diagrams/visuals, or diagnosing layout issues such as overflow, overlaps, and font substitution.
+
+review:
+  status: "reviewed"
+  summary: >
+    Skill для работы с презентациями (PPT, PPTX, Google Slides): извлечение текста со слайдов, 
+    анализ структуры и содержания, поиск информации и подготовка данных для дальнейшей обработки или конвертации.
+  reviewed_by: "store-team"
+  reviewed_at: "2026-03-30"
+
+license:
+  id: "Apache 2.0"
+  url: "http://www.apache.org/licenses/"
+
+policy:
+  featured: false
+  hidden: false
+  replacement: ""

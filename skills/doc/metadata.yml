@@ -1,0 +1,60 @@
+source:
+  repo: "https://github.com/openai/skills"
+  path: "main/skills/.curated/doc"
+  branch: "main"
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/doc"
+  imported_at: "2026-03-30"
+
+catalog:
+  slug: "doc"
+  title: "Обработка текстовых документов"
+  tags:
+    - "documents"
+    - "doc"
+    - "text-processing"
+    - "file-processing"
+    - "document-analysis"
+    - "content-extraction"
+    - "markdown"
+  search_aliases:
+    - "документ"
+    - "прочитать документ"
+    - "открыть файл"
+    - "извлечь текст"
+    - "анализ документа"
+    - "прочитай файл"
+    - "что в документе"
+    - "найди в документе"
+    - "обработай документ"
+    - "конвертировать документ"
+    - "doc файл"
+    - "word документ"
+    - "docx"
+    - "текстовый файл"
+    - "прочитать doc"
+    - "extract document text"
+    - "analyze document"
+
+skill:
+  name: "pdf"
+  description: >
+    Use when the task involves reading, creating, or editing `.docx` documents, especially when formatting or layout fidelity matters; 
+    prefer `python-docx` plus the bundled `scripts/render_docx.py` for visual checks.
+
+review:
+  status: "reviewed"
+  summary: >
+    Skill для работы с текстовыми документами:
+    открыть файл, извлечь текст, проанализировать содержимое, найти
+    информацию или подготовить документ для обработки и индексации.
+  reviewed_by: "store-team"
+  reviewed_at: "2026-03-30"
+
+license:
+  id: "Apache 2.0"
+  url: "http://www.apache.org/licenses/"
+
+policy:
+  featured: false
+  hidden: false
+  replacement: ""

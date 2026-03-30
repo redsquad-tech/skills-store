@@ -1,0 +1,56 @@
+source:
+  repo: "https://github.com/openai/skills"
+  path: "main/skills/.curated/pdf"
+  branch: "main"
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/pdf"
+  imported_at: "2026-03-30"
+
+catalog:
+  slug: "pdf"
+  title: "Анализ PDF"
+  tags:
+    - "pdf"
+    - "documents"
+    - "text-extraction"
+    - "file-processing"
+    - "document-analysis"
+    - "ocr"
+    - "data-extraction"
+  search_aliases:
+    - "pdf"
+    - "документ pdf"
+    - "прочитать pdf"
+    - "извлечь текст из pdf"
+    - "распарсить pdf"
+    - "анализ pdf"
+    - "найти в pdf"
+    - "конвертировать pdf"
+    - "pdf в текст"
+    - "pdf в markdown"
+    - "прочитай файл"
+    - "обработай документ"
+    - "extract pdf text"
+
+skill:
+  name: "pdf"
+  description: >
+    Use when tasks involve reading, creating, or reviewing PDF files where rendering and layout matter; 
+    prefer visual checks by rendering pages (Poppler) and use Python tools such as `reportlab`, `pdfplumber`, and `pypdf` for generation and extraction.
+
+review:
+  status: "reviewed"
+  summary: >
+    Skill для работы с PDF-документами: извлечь текст,
+    проанализировать содержимое, найти информацию или подготовить данные
+    для дальнейшей обработки и индексации.
+  reviewed_by: "store-team"
+  reviewed_at: "2026-03-30"
+
+license:
+  id: "Apache 2.0"
+  url: "http://www.apache.org/licenses/"
+
+policy:
+  featured: false
+  hidden: false
+  replacement: ""

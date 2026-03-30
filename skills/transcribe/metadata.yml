@@ -1,0 +1,54 @@
+source:
+  repo: "https://github.com/openai/skills"
+  path: "main/skills/.curated/transcribe"
+  branch: "main"
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/transcribe"
+  imported_at: "2026-03-30"
+
+catalog:
+  slug: "transcribe"
+  title: "Расшифровка аудио"
+  tags:
+    - "audio"
+    - "transcription"
+    - "speech-to-text"
+    - "voice"
+    - "audio-processing"
+    - "text-extraction"
+  search_aliases:
+    - "аудио"
+    - "расшифровать аудио"
+    - "перевести речь в текст"
+    - "что сказано в записи"
+    - "транскрипция"
+    - "распознать речь"
+    - "расшифровка"
+    - "голос в текст"
+    - "speech to text"
+    - "transcribe audio"
+    - "audio to text"
+    - "распознай аудио"
+    - "сделай текст из записи"
+
+skill:
+  name: "transcribe"
+  description: >
+    Transcribe audio files to text with optional diarization and known-speaker hints. 
+    Use when a user asks to transcribe speech from audio/video, extract text from recordings, or label speakers in interviews or meetings.
+
+review:
+  status: "reviewed"
+  summary: >
+    Skill для работы с аудио: преобразование речи в текст (speech-to-text),
+    расшифровка записей, извлечение содержания разговоров и подготовка текста для дальнейшего анализа.
+  reviewed_by: "store-team"
+  reviewed_at: "2026-03-30"
+
+license:
+  id: "Apache 2.0"
+  url: "http://www.apache.org/licenses/"
+
+policy:
+  featured: false
+  hidden: false
+  replacement: ""

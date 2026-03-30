@@ -1,0 +1,55 @@
+source:
+  repo: "https://github.com/yankeguo/weavmail"
+  path: "/main/skills/weavmail"
+  branch: "main"
+  url: "https://github.com/yankeguo/weavmail/blob/main/skills/weavmail"
+  imported_at: "2026-03-30"
+
+catalog:
+  slug: "weavmail"
+  title: "Работа с почтой"
+  tags:
+    - "email"
+    - "imap"
+    - "mail"
+    - "communication"
+    - "data-sync"
+    - "messages"
+    - "integration"
+  search_aliases:
+    - "почта"
+    - "email"
+    - "письма"
+    - "прочитать почту"
+    - "найти письмо"
+    - "поиск по почте"
+    - "синхронизировать почту"
+    - "imap"
+    - "прочитай письма"
+    - "что в почте"
+    - "email sync"
+    - "mail sync"
+    - "read emails"
+    - "search emails"
+
+skill:
+  name: "weavmail"
+  description: >
+    Use weavmail CLI to manage emails for the current task. Use when you need to read, send, reply to, or move emails as part of completing a task.
+
+review:
+  status: "reviewed"
+  summary: >
+    Skill для работы с электронной почтой через IMAP: синхронизация писем, поиск и чтение сообщений, 
+    а также сохранение переписки в локальном виде (например, Markdown) для последующего анализа и обработки.
+  reviewed_by: "store-team"
+  reviewed_at: "2026-03-30"
+
+license:
+  id: "MIT"
+  url: "https://opensource.org/licenses"
+
+policy:
+  featured: false
+  hidden: false
+  replacement: ""
