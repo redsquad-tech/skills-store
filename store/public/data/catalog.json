@@ -82,7 +82,7 @@
     },
     "review": {
       "status": "reviewed",
-      "summary": "Defines the canonical vault structure, including folders, entity types, frontmatter schema, and linking rules. Acts as the foundation for all other skills.\n",
+      "summary": "Converts source documents from vault/docs/source into markdown files in vault/docs/derived-md with metadata for indexing and downstream search.\n",
       "reviewed_at": "2026-03-26"
     },
     "guarantees": [],
@@ -138,8 +138,20 @@
     "title": "Поиск по базе знаний",
     "short_description": "Use this skill when you need to search across the local vault. It allows you to find relevant information in Markdown files including documents, emails, events, and notes using full-text search.\n",
     "full_description": "Use this skill when you need to search across the local vault. It allows you to find relevant information in Markdown files including documents, emails, events, and notes using full-text search.\n",
-    "tags": [],
-    "search_aliases": [],
+    "tags": [
+      "search",
+      "markdown",
+      "indexing",
+      "local-search",
+      "knowledge-base"
+    ],
+    "search_aliases": [
+      "search vault",
+      "найти в документах",
+      "поиск по markdown",
+      "find document",
+      "full text search"
+    ],
     "source": {
       "url": "https://github.com/redsquad-tech/skills-store/tree/main/skills/qmd",
       "label": "https://github.com/redsquad-tech/skills-store"

@@ -9,6 +9,11 @@ profiles:
     - git
     - node
     - python
+    - uv
+    - qmd
+    - weavmail
+    - markitdown
+    - rclone
   docs:
     - qmd
     - markitdown
@@ -26,6 +31,7 @@ profiles:
     - git
     - node
     - python
+    - uv
     - qmd
     - markitdown
     - weavmail
@@ -41,6 +47,8 @@ tools:
     command: node --version
   python:
     command: python3 --version
+  uv:
+    command: uv --version
   qmd:
     command: qmd --help
   markitdown:

@@ -25,7 +25,7 @@ else
   warn "bundle.yml is missing"
 fi
 
-for cmd in git node python3; do
+for cmd in git node python3 uv qmd weavmail markitdown rclone; do
   if command_exists "$cmd"; then
     info "$cmd found"
   else

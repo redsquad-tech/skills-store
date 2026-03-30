@@ -22,16 +22,135 @@ function Test-CommandExists($Name) {
   return $null -ne (Get-Command $Name -ErrorAction SilentlyContinue)
 }
 
-function Ensure-Core {
-  Write-Info "Checking core tools..."
-  $required = @("git", "node", "python")
-  foreach ($tool in $required) {
-    if (Test-CommandExists $tool) {
-      Write-Info "$tool found"
-    } else {
-      Write-Warn "$tool is not installed"
+function Install-WithWinget($PackageId) {
+  if (-not (Test-CommandExists "winget")) {
+    Write-Warn "winget not found"
+    return $false
+  }
+
+  try {
+    winget install --id $PackageId --exact --silent --accept-package-agreements --accept-source-agreements | Out-Null
+    return $true
+  } catch {
+    Write-Warn "winget install failed for $PackageId"
+    return $false
+  }
+}
+
+function Install-Tool($Name) {
+  switch ($Name) {
+    "git" {
+      return (Install-WithWinget "Git.Git")
+    }
+    "node" {
+      return (Install-WithWinget "OpenJS.NodeJS.LTS")
+    }
+    "python" {
+      return (Install-WithWinget "Python.Python.3.12")
+    }
+    "uv" {
+      return (Install-WithWinget "Astral-sh.uv")
+    }
+    "rclone" {
+      return (Install-WithWinget "Rclone.Rclone")
+    }
+    "qmd" {
+      if (-not (Test-CommandExists "uv")) {
+        if (-not (Install-Tool "uv")) {
+          return $false
+        }
+      }
+      try {
+        uv tool install qmd | Out-Null
+      } catch {
+        try { uv tool upgrade qmd | Out-Null } catch { return $false }
+      }
+      return $true
+    }
+    "weavmail" {
+      if (-not (Test-CommandExists "uv")) {
+        if (-not (Install-Tool "uv")) {
+          return $false
+        }
+      }
+      try {
+        uv tool install weavmail | Out-Null
+      } catch {
+        try { uv tool upgrade weavmail | Out-Null } catch { return $false }
+      }
+      return $true
+    }
+    "markitdown" {
+      if (-not (Test-CommandExists "python")) {
+        if (-not (Install-Tool "python")) {
+          return $false
+        }
+      }
+      try {
+        python -m pip install --user -U "markitdown[all]" | Out-Null
+        return $true
+      } catch {
+        Write-Warn "pip installation failed for markitdown"
+        return $false
+      }
+    }
+    "sogcli" {
+      Write-Warn "Automatic install for sogcli is not configured yet"
+      return $false
+    }
+    "gogcli" {
+      Write-Warn "Automatic install for gogcli is not configured yet"
+      return $false
+    }
+    default {
+      Write-Warn "Unknown install target: $Name"
+      return $false
     }
   }
+}
+
+function Ensure-ToolInstalled($ToolName, $CheckCmd) {
+  if (Test-CommandExists $CheckCmd) {
+    Write-Info "$ToolName found"
+    return $true
+  }
+
+  Write-Warn "$ToolName is not installed. Attempting installation..."
+  if ((Install-Tool $ToolName) -and (Test-CommandExists $CheckCmd)) {
+    Write-Info "$ToolName installed successfully"
+    return $true
+  }
+
+  Write-Warn "$ToolName installation failed"
+  return $false
+}
+
+function Ensure-Core {
+  Write-Info "Ensuring core dependencies..."
+
+  $failed = $false
+
+  if (-not (Ensure-ToolInstalled "git" "git")) { $failed = $true }
+  if (-not (Ensure-ToolInstalled "node" "node")) { $failed = $true }
+
+  if (-not (Test-CommandExists "python")) {
+    if (-not (Ensure-ToolInstalled "python" "python")) { $failed = $true }
+  } else {
+    Write-Info "python found"
+  }
+
+  if (-not (Ensure-ToolInstalled "uv" "uv")) { $failed = $true }
+  if (-not (Ensure-ToolInstalled "qmd" "qmd")) { $failed = $true }
+  if (-not (Ensure-ToolInstalled "weavmail" "weavmail")) { $failed = $true }
+  if (-not (Ensure-ToolInstalled "markitdown" "markitdown")) { $failed = $true }
+  if (-not (Ensure-ToolInstalled "rclone" "rclone")) { $failed = $true }
+
+  if ($failed) {
+    Write-Warn "Core dependencies have unresolved issues"
+    exit 1
+  }
+
+  Write-Info "Core dependencies are ready"
 }
 
 function Ensure-Vault {
@@ -70,24 +189,13 @@ function Ensure-Tool($Name) {
   switch ($Name) {
     "core" { Ensure-Core }
     "vault" { Ensure-Vault }
-    "qmd" {
-      if (Test-CommandExists "qmd") { Write-Info "qmd found" } else { Write-Warn "qmd is not installed" }
-    }
-    "markitdown" {
-      if (Test-CommandExists "markitdown") { Write-Info "markitdown found" } else { Write-Warn "markitdown is not installed" }
-    }
-    "weavmail" {
-      if (Test-CommandExists "weavmail") { Write-Info "weavmail found" } else { Write-Warn "weavmail is not installed" }
-    }
-    "sogcli" {
-      if (Test-CommandExists "sogcli") { Write-Info "sogcli found" } else { Write-Warn "sogcli is not installed" }
-    }
-    "rclone" {
-      if (Test-CommandExists "rclone") { Write-Info "rclone found" } else { Write-Warn "rclone is not installed" }
-    }
-    "gogcli" {
-      if (Test-CommandExists "gogcli") { Write-Info "gogcli found" } else { Write-Warn "gogcli is not installed" }
-    }
+    "qmd" { if (-not (Ensure-ToolInstalled "qmd" "qmd")) { exit 1 } }
+    "markitdown" { if (-not (Ensure-ToolInstalled "markitdown" "markitdown")) { exit 1 } }
+    "weavmail" { if (-not (Ensure-ToolInstalled "weavmail" "weavmail")) { exit 1 } }
+    "sogcli" { if (-not (Ensure-ToolInstalled "sogcli" "sogcli")) { exit 1 } }
+    "rclone" { if (-not (Ensure-ToolInstalled "rclone" "rclone")) { exit 1 } }
+    "gogcli" { if (-not (Ensure-ToolInstalled "gogcli" "gogcli")) { exit 1 } }
+    "uv" { if (-not (Ensure-ToolInstalled "uv" "uv")) { exit 1 } }
     default {
       Write-Warn "Unknown ensure target: $Name"
       exit 1
@@ -100,7 +208,10 @@ function Show-Help {
   Write-Host "  ./bin/bundle-install.ps1 ensure core"
   Write-Host "  ./bin/bundle-install.ps1 ensure vault"
   Write-Host "  ./bin/bundle-install.ps1 ensure qmd"
+  Write-Host "  ./bin/bundle-install.ps1 ensure weavmail"
   Write-Host "  ./bin/bundle-install.ps1 ensure markitdown"
+  Write-Host "  ./bin/bundle-install.ps1 ensure uv"
+  Write-Host "  ./bin/bundle-install.ps1 ensure rclone"
   Write-Host "  ./bin/bundle-install.ps1 verify"
   Write-Host ""
   Write-Host "bundle.yml: $BundleFile"
