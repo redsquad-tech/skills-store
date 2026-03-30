@@ -49,6 +49,46 @@
     "updated_at": "2026-03-30"
   },
   {
+    "slug": "doc-ingest-md",
+    "title": "Конвертация документов в .MD",
+    "short_description": "Use this skill when you need to convert documents into Markdown for further processing. It takes files from the vault docs/source directory, converts them into Markdown format, and saves the results into docs/derived-md. This enables the agent to read, search, and analyze document content.\n",
+    "full_description": "Use this skill when you need to convert documents into Markdown for further processing. It takes files from the vault docs/source directory, converts them into Markdown format, and saves the results into docs/derived-md. This enables the agent to read, search, and analyze document content.\n",
+    "tags": [
+      "documents",
+      "markdown",
+      "conversion",
+      "ingest",
+      "pdf",
+      "docx",
+      "text-processing"
+    ],
+    "search_aliases": [
+      "convert document",
+      "pdf в markdown",
+      "docx в markdown",
+      "обработать документ",
+      "прочитать файл",
+      "ingest docs",
+      "index documents",
+      "document parsing"
+    ],
+    "source": {
+      "url": "https://github.com/redsquad-tech/skills-store/tree/main/skills/doc-ingest-md",
+      "label": "https://github.com/redsquad-tech/skills-store"
+    },
+    "license": {
+      "id": "MIT",
+      "url": ""
+    },
+    "review": {
+      "status": "reviewed",
+      "summary": "Defines the canonical vault structure, including folders, entity types, frontmatter schema, and linking rules. Acts as the foundation for all other skills.\n",
+      "reviewed_at": "2026-03-26"
+    },
+    "guarantees": [],
+    "updated_at": "2026-03-30"
+  },
+  {
     "slug": "pdf",
     "title": "Анализ PDF",
     "short_description": "Use when tasks involve reading, creating, or reviewing PDF files where rendering and layout matter;  prefer visual checks by rendering pages (Poppler) and use Python tools such as `reportlab`, `pdfplumber`, and `pypdf` for generation and extraction.\n",
@@ -94,6 +134,29 @@
     "updated_at": "2026-03-30"
   },
   {
+    "slug": "qmd",
+    "title": "Поиск по базе знаний",
+    "short_description": "Use this skill when you need to search across the local vault. It allows you to find relevant information in Markdown files including documents, emails, events, and notes using full-text search.\n",
+    "full_description": "Use this skill when you need to search across the local vault. It allows you to find relevant information in Markdown files including documents, emails, events, and notes using full-text search.\n",
+    "tags": [],
+    "search_aliases": [],
+    "source": {
+      "url": "https://github.com/redsquad-tech/skills-store/tree/main/skills/qmd",
+      "label": "https://github.com/redsquad-tech/skills-store"
+    },
+    "license": {
+      "id": "MIT",
+      "url": ""
+    },
+    "review": {
+      "status": "reviewed",
+      "summary": "Provides local full-text search using qmd across all markdown files in the vault.\n",
+      "reviewed_at": "2026-03-26"
+    },
+    "guarantees": [],
+    "updated_at": ""
+  },
+  {
     "slug": "screenshot",
     "title": "Анализ изображений и скриншотов",
     "short_description": "Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region),  or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.\n",
@@ -134,6 +197,41 @@
       "status": "reviewed",
       "summary": "Skill для анализа скриншотов или изображений: извлечь текст, понять содержимое, описать интерфейс или найти информацию на изображении.\n",
       "reviewed_at": "2026-03-30"
+    },
+    "guarantees": [],
+    "updated_at": "2026-03-30"
+  },
+  {
+    "slug": "setup-bundle",
+    "title": "Установка и настройка окружения",
+    "short_description": "Use this skill when you need to initialize or verify the bundle environment. It installs required dependencies, prepares the vault, and ensures that all tools are available for other skills to function correctly.\n",
+    "full_description": "Use this skill when you need to initialize or verify the bundle environment. It installs required dependencies, prepares the vault, and ensures that all tools are available for other skills to function correctly.\n",
+    "tags": [
+      "setup",
+      "installation",
+      "environment",
+      "bootstrap",
+      "devops"
+    ],
+    "search_aliases": [
+      "setup bundle",
+      "install dependencies",
+      "инициализация",
+      "установить окружение",
+      "prepare environment"
+    ],
+    "source": {
+      "url": "https://github.com/redsquad-tech/skills-store/tree/main/skills/setup-bundle",
+      "label": "https://github.com/redsquad-tech/skills-store"
+    },
+    "license": {
+      "id": "MIT",
+      "url": ""
+    },
+    "review": {
+      "status": "reviewed",
+      "summary": "Handles installation and verification of the bundle environment and dependencies.\n",
+      "reviewed_at": "2026-03-26"
     },
     "guarantees": [],
     "updated_at": "2026-03-30"
@@ -315,6 +413,45 @@
     },
     "guarantees": [],
     "updated_at": "2026-03-30"
+  },
+  {
+    "slug": "vault-schema",
+    "title": "Просмотр структуры хранилища данных Vault",
+    "short_description": "Use this skill when you need to understand how data is structured in the local vault. It defines where different entities (mail, events, contacts, documents, drafts) are stored, what metadata they contain, and how they are linked together. This skill should be used before reading or writing any files in the vault.\n",
+    "full_description": "Use this skill when you need to understand how data is structured in the local vault. It defines where different entities (mail, events, contacts, documents, drafts) are stored, what metadata they contain, and how they are linked together. This skill should be used before reading or writing any files in the vault.\n",
+    "tags": [
+      "vault",
+      "markdown",
+      "data-model",
+      "schema",
+      "knowledge-base",
+      "file-structure"
+    ],
+    "search_aliases": [
+      "vault structure",
+      "data schema",
+      "где лежат данные",
+      "структура данных",
+      "структура vault",
+      "markdown база",
+      "схема хранения",
+      "как устроен vault"
+    ],
+    "source": {
+      "url": "https://github.com/redsquad-tech/skills-store/tree/main/skills/vault-schema",
+      "label": "https://github.com/redsquad-tech/skills-store"
+    },
+    "license": {
+      "id": "MIT",
+      "url": ""
+    },
+    "review": {
+      "status": "reviewed",
+      "summary": "Defines the canonical vault structure, including folders, entity types, frontmatter schema, and linking rules. Acts as the foundation for all other skills.\n",
+      "reviewed_at": "2026-03-26"
+    },
+    "guarantees": [],
+    "updated_at": ""
   },
   {
     "slug": "weavmail",

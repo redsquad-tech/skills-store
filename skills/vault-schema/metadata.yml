@@ -1,6 +1,6 @@
 catalog:
   slug: vault-schema
-  title: "Vault Schema"
+  title: "Просмотр структуры хранилища данных Vault"
   tags:
     - "vault"
     - "markdown"

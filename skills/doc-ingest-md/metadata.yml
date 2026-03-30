@@ -1,6 +1,13 @@
+source:
+  repo: "https://github.com/redsquad-tech/skills-store"
+  path: "main/skills/doc-ingest-md"
+  branch: "main"
+  url: "https://github.com/redsquad-tech/skills-store/tree/main/skills/doc-ingest-md"
+  imported_at: "2026-03-30"
+  
 catalog:
   slug: doc-ingest-md
-  title: "Document Ingest to Markdown"
+  title: "Конвертация документов в .MD"
   tags:
     - "documents"
     - "markdown"
@@ -19,10 +26,6 @@ catalog:
     - "index documents"
     - "document parsing"
 
-source:
-  url: "https://github.com/redsquad-tech/skills-store/tree/main/skills/doc-ingest-md"
-  repo: "https://github.com/redsquad-tech/skills-store"
-  
 skill:
   name: doc_ingest_md
   description: >

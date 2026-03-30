@@ -1,31 +1,46 @@
 # Document Ingest to Markdown
 
-## Purpose
-Converts documents into Markdown for indexing and search.
+## When to use
+
+Use this skill when the user asks to: 
+- process documents 
+- convert files to markdown 
+- prepare documents for search or indexing 
+- ingest files into the vault
+
+---
+
+## What it does
+
+This skill converts documents from the source folder into Markdown
+format and stores them in the vault for further indexing and search.
 
 ---
 
 ## Input
+
 vault/docs/source/
 
----
-
 ## Output
+
 vault/docs/derived-md/
 
 ---
 
-## Flow
-1. Scan source
-2. Convert via MarkItDown
-3. Save Markdown
-4. Add metadata
+## Steps
+
+1.  Scan files in `vault/docs/source/`
+2.  For each file:
+    -   read content
+    -   convert to Markdown using MarkItDown
+3.  Save result to `vault/docs/derived-md/`
+4.  Add metadata block to each file
 
 ---
 
-## Metadata
+## Metadata format
 
-```yaml
+``` yaml
 id: doc-<hash>
 type: doc
 title: <filename>
@@ -38,10 +53,32 @@ updated_at: <timestamp>
 ---
 
 ## Behavior
-- read-only source
-- idempotent processing
+
+-   Do not modify source files
+-   Re-run safely (idempotent)
+-   Skip already processed files if unchanged
 
 ---
 
 ## Dependencies
-- MarkItDown
+
+-   MarkItDown
+(pip install markitdown[all])
+
+---
+
+## Execution
+
+When user asks to process documents:
+
+1.  Read files from `vault/docs/source/`
+2.  Convert them to Markdown
+3.  Save results to `vault/docs/derived-md/`
+
+---
+
+## Implementation
+
+Script: scripts/ingest_docs.py
+
+Run: python scripts/ingest_docs.py

@@ -32,6 +32,29 @@
     ]
   },
   {
+    "slug": "doc-ingest-md",
+    "title": "Конвертация документов в .MD",
+    "tags": [
+      "documents",
+      "markdown",
+      "conversion",
+      "ingest",
+      "pdf",
+      "docx",
+      "text-processing"
+    ],
+    "search_aliases": [
+      "convert document",
+      "pdf в markdown",
+      "docx в markdown",
+      "обработать документ",
+      "прочитать файл",
+      "ingest docs",
+      "index documents",
+      "document parsing"
+    ]
+  },
+  {
     "slug": "pdf",
     "title": "Анализ PDF",
     "tags": [
@@ -60,6 +83,12 @@
     ]
   },
   {
+    "slug": "qmd",
+    "title": "Поиск по базе знаний",
+    "tags": [],
+    "search_aliases": []
+  },
+  {
     "slug": "screenshot",
     "title": "Анализ изображений и скриншотов",
     "tags": [
@@ -85,6 +114,24 @@
       "прочитай изображение",
       "image analysis",
       "extract text from image"
+    ]
+  },
+  {
+    "slug": "setup-bundle",
+    "title": "Установка и настройка окружения",
+    "tags": [
+      "setup",
+      "installation",
+      "environment",
+      "bootstrap",
+      "devops"
+    ],
+    "search_aliases": [
+      "setup bundle",
+      "install dependencies",
+      "инициализация",
+      "установить окружение",
+      "prepare environment"
     ]
   },
   {
@@ -195,6 +242,28 @@
       "audio to text",
       "распознай аудио",
       "сделай текст из записи"
+    ]
+  },
+  {
+    "slug": "vault-schema",
+    "title": "Просмотр структуры хранилища данных Vault",
+    "tags": [
+      "vault",
+      "markdown",
+      "data-model",
+      "schema",
+      "knowledge-base",
+      "file-structure"
+    ],
+    "search_aliases": [
+      "vault structure",
+      "data schema",
+      "где лежат данные",
+      "структура данных",
+      "структура vault",
+      "markdown база",
+      "схема хранения",
+      "как устроен vault"
     ]
   },
   {
