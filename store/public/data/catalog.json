@@ -89,6 +89,44 @@
     "updated_at": "2026-03-30"
   },
   {
+    "slug": "mail-md",
+    "title": "Почта в Markdown (mail flow)",
+    "short_description": "Syncs mail into vault markdown layout: raw messages and per-thread notes. Supports local markdown flow and weavmail-based IMAP sync.\n",
+    "full_description": "Syncs mail into vault markdown layout: raw messages and per-thread notes. Supports local markdown flow and weavmail-based IMAP sync.\n",
+    "tags": [
+      "mail",
+      "email",
+      "imap",
+      "weavmail",
+      "vault",
+      "threads",
+      "markdown"
+    ],
+    "search_aliases": [
+      "mail md",
+      "sync mail",
+      "imap to markdown",
+      "thread notes",
+      "почта в markdown",
+      "синк почты"
+    ],
+    "source": {
+      "url": "https://github.com/redsquad-tech/skills-store/tree/main/skills/mail-md",
+      "label": "https://github.com/redsquad-tech/skills-store"
+    },
+    "license": {
+      "id": "MIT",
+      "url": ""
+    },
+    "review": {
+      "status": "basic-tested",
+      "summary": "Implements D1 local markdown mail flow and D2 weavmail integration into vault/mail/raw and vault/mail/threads with links and thread notes.\n",
+      "reviewed_at": "2026-03-30"
+    },
+    "guarantees": [],
+    "updated_at": "2026-03-30"
+  },
+  {
     "slug": "pdf",
     "title": "Анализ PDF",
     "short_description": "Use when tasks involve reading, creating, or reviewing PDF files where rendering and layout matter;  prefer visual checks by rendering pages (Poppler) and use Python tools such as `reportlab`, `pdfplumber`, and `pypdf` for generation and extraction.\n",

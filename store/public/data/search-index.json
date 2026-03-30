@@ -55,6 +55,27 @@
     ]
   },
   {
+    "slug": "mail-md",
+    "title": "Почта в Markdown (mail flow)",
+    "tags": [
+      "mail",
+      "email",
+      "imap",
+      "weavmail",
+      "vault",
+      "threads",
+      "markdown"
+    ],
+    "search_aliases": [
+      "mail md",
+      "sync mail",
+      "imap to markdown",
+      "thread notes",
+      "почта в markdown",
+      "синк почты"
+    ]
+  },
+  {
     "slug": "pdf",
     "title": "Анализ PDF",
     "tags": [
