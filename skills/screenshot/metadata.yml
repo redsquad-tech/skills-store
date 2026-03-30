@@ -1,0 +1,56 @@
+source:
+  repo: "https://github.com/openai/skills"
+  path: "main/skills/.curated/screenshot"
+  branch: "main"
+  url: "https://github.com/openai/skills/tree/main/skills/.curated/screenshot"
+  imported_at: "2026-03-30"
+
+catalog:
+  slug: "screenshot"
+  title: "Screenshot"
+  tags:
+    - "images"
+    - "screenshot"
+    - "ocr"
+    - "image-analysis"
+    - "vision"
+    - "text-extraction"
+    - "ui-analysis"
+  search_aliases:
+    - "скриншот"
+    - "анализ изображения"
+    - "что на картинке"
+    - "прочитай текст с картинки"
+    - "извлечь текст с изображения"
+    - "распознать текст"
+    - "ocr"
+    - "проанализируй скрин"
+    - "что изображено"
+    - "найди текст на скриншоте"
+    - "прочитай изображение"
+    - "image analysis"
+    - "extract text from image"
+
+skill:
+  name: "screenshot"
+  description: >
+    Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), 
+    or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.
+
+review:
+  status: "reviewed"
+  summary: >
+    Skill для анализа скриншотов или изображений:
+    извлечь текст, понять содержимое, описать интерфейс или найти информацию
+    на изображении.
+  reviewed_by: "store-team"
+  reviewed_at: "2026-03-30"
+
+license:
+  id: "Apache 2.0"
+  url: "http://www.apache.org/licenses/"
+
+policy:
+  featured: false
+  hidden: false
+  replacement: ""

@@ -1,9 +1,243 @@
 [
   {
+    "slug": "doc",
+    "title": "Doc",
+    "short_description": "Use when the task involves reading, creating, or editing `.docx` documents, especially when formatting or layout fidelity matters;  prefer `python-docx` plus the bundled `scripts/render_docx.py` for visual checks.\n",
+    "full_description": "Use when the task involves reading, creating, or editing `.docx` documents, especially when formatting or layout fidelity matters;  prefer `python-docx` plus the bundled `scripts/render_docx.py` for visual checks.\n",
+    "tags": [
+      "documents",
+      "doc",
+      "text-processing",
+      "file-processing",
+      "document-analysis",
+      "content-extraction",
+      "markdown"
+    ],
+    "search_aliases": [
+      "документ",
+      "прочитать документ",
+      "открыть файл",
+      "извлечь текст",
+      "анализ документа",
+      "прочитай файл",
+      "что в документе",
+      "найди в документе",
+      "обработай документ",
+      "конвертировать документ",
+      "doc файл",
+      "word документ",
+      "docx",
+      "текстовый файл",
+      "прочитать doc",
+      "extract document text",
+      "analyze document"
+    ],
+    "source": {
+      "url": "https://github.com/openai/skills/tree/main/skills/.curated/doc",
+      "label": "https://github.com/openai/skills"
+    },
+    "license": {
+      "id": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "review": {
+      "status": "reviewed",
+      "summary": "Skill для работы с текстовыми документами: открыть файл, извлечь текст, проанализировать содержимое, найти информацию или подготовить документ для обработки и индексации.\n",
+      "reviewed_at": "2026-03-30"
+    },
+    "guarantees": [],
+    "updated_at": "2026-03-30"
+  },
+  {
+    "slug": "pdf",
+    "title": "Pdf",
+    "short_description": "Use when tasks involve reading, creating, or reviewing PDF files where rendering and layout matter;  prefer visual checks by rendering pages (Poppler) and use Python tools such as `reportlab`, `pdfplumber`, and `pypdf` for generation and extraction.\n",
+    "full_description": "Use when tasks involve reading, creating, or reviewing PDF files where rendering and layout matter;  prefer visual checks by rendering pages (Poppler) and use Python tools such as `reportlab`, `pdfplumber`, and `pypdf` for generation and extraction.\n",
+    "tags": [
+      "pdf",
+      "documents",
+      "text-extraction",
+      "file-processing",
+      "document-analysis",
+      "ocr",
+      "data-extraction"
+    ],
+    "search_aliases": [
+      "pdf",
+      "документ pdf",
+      "прочитать pdf",
+      "извлечь текст из pdf",
+      "распарсить pdf",
+      "анализ pdf",
+      "найти в pdf",
+      "конвертировать pdf",
+      "pdf в текст",
+      "pdf в markdown",
+      "прочитай файл",
+      "обработай документ",
+      "extract pdf text"
+    ],
+    "source": {
+      "url": "https://github.com/openai/skills/tree/main/skills/.curated/pdf",
+      "label": "https://github.com/openai/skills"
+    },
+    "license": {
+      "id": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "review": {
+      "status": "reviewed",
+      "summary": "Skill для работы с PDF-документами: извлечь текст, проанализировать содержимое, найти информацию или подготовить данные для дальнейшей обработки и индексации.\n",
+      "reviewed_at": "2026-03-30"
+    },
+    "guarantees": [],
+    "updated_at": "2026-03-30"
+  },
+  {
+    "slug": "screenshot",
+    "title": "Screenshot",
+    "short_description": "Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region),  or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.\n",
+    "full_description": "Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region),  or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.\n",
+    "tags": [
+      "images",
+      "screenshot",
+      "ocr",
+      "image-analysis",
+      "vision",
+      "text-extraction",
+      "ui-analysis"
+    ],
+    "search_aliases": [
+      "скриншот",
+      "анализ изображения",
+      "что на картинке",
+      "прочитай текст с картинки",
+      "извлечь текст с изображения",
+      "распознать текст",
+      "ocr",
+      "проанализируй скрин",
+      "что изображено",
+      "найди текст на скриншоте",
+      "прочитай изображение",
+      "image analysis",
+      "extract text from image"
+    ],
+    "source": {
+      "url": "https://github.com/openai/skills/tree/main/skills/.curated/screenshot",
+      "label": "https://github.com/openai/skills"
+    },
+    "license": {
+      "id": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "review": {
+      "status": "reviewed",
+      "summary": "Skill для анализа скриншотов или изображений: извлечь текст, понять содержимое, описать интерфейс или найти информацию на изображении.\n",
+      "reviewed_at": "2026-03-30"
+    },
+    "guarantees": [],
+    "updated_at": "2026-03-30"
+  },
+  {
+    "slug": "slides",
+    "title": "Slides",
+    "short_description": "Create and edit presentation slide decks (`.pptx`) with PptxGenJS, bundled layout helpers, and render/validation utilities.  Use when tasks involve building a new PowerPoint deck, recreating slides from screenshots/PDFs/reference decks, modifying slide content while preserving editable output,  adding charts/diagrams/visuals, or diagnosing layout issues such as overflow, overlaps, and font substitution.\n",
+    "full_description": "Create and edit presentation slide decks (`.pptx`) with PptxGenJS, bundled layout helpers, and render/validation utilities.  Use when tasks involve building a new PowerPoint deck, recreating slides from screenshots/PDFs/reference decks, modifying slide content while preserving editable output,  adding charts/diagrams/visuals, or diagnosing layout issues such as overflow, overlaps, and font substitution.\n",
+    "tags": [
+      "presentations",
+      "slides",
+      "ppt",
+      "pptx",
+      "document-analysis",
+      "content-extraction",
+      "visual-content"
+    ],
+    "search_aliases": [
+      "презентация",
+      "слайды",
+      "прочитать презентацию",
+      "анализ презентации",
+      "что в слайдах",
+      "извлечь текст из презентации",
+      "ppt",
+      "pptx",
+      "powerpoint",
+      "google slides",
+      "прочитай слайды",
+      "найди в презентации",
+      "разбери презентацию",
+      "extract slides content",
+      "analyze presentation"
+    ],
+    "source": {
+      "url": "https://github.com/openai/skills/tree/main/skills/.curated/slides",
+      "label": "https://github.com/openai/skills"
+    },
+    "license": {
+      "id": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "review": {
+      "status": "reviewed",
+      "summary": "Skill для работы с презентациями (PPT, PPTX, Google Slides): извлечение текста со слайдов,  анализ структуры и содержания, поиск информации и подготовка данных для дальнейшей обработки или конвертации.\n",
+      "reviewed_at": "2026-03-30"
+    },
+    "guarantees": [],
+    "updated_at": "2026-03-30"
+  },
+  {
+    "slug": "spreadsheet",
+    "title": "Spreadsheet",
+    "short_description": "Use when tasks involve creating, editing, analyzing, or formatting spreadsheets (`.xlsx`, `.csv`, `.tsv`) with formula-aware workflows, cached recalculation, and visual review.\n",
+    "full_description": "Use when tasks involve creating, editing, analyzing, or formatting spreadsheets (`.xlsx`, `.csv`, `.tsv`) with formula-aware workflows, cached recalculation, and visual review.\n",
+    "tags": [
+      "spreadsheets",
+      "excel",
+      "data-analysis",
+      "tables",
+      "data-processing",
+      "analytics",
+      "reporting"
+    ],
+    "search_aliases": [
+      "таблица",
+      "excel",
+      "xlsx",
+      "google sheets",
+      "проанализируй таблицу",
+      "найди в таблице",
+      "посчитай в таблице",
+      "сводка по данным",
+      "агрегировать данные",
+      "фильтр таблицы",
+      "обработай таблицу",
+      "что в excel",
+      "анализ данных",
+      "сделай отчет",
+      "analyze spreadsheet",
+      "calculate metrics"
+    ],
+    "source": {
+      "url": "https://github.com/openai/skills/tree/main/skills/.spreadsheet/slides",
+      "label": "https://github.com/openai/skills"
+    },
+    "license": {
+      "id": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "review": {
+      "status": "reviewed",
+      "summary": "Skill для работы с табличными данными (Excel, Google Sheets): анализ, фильтрация, агрегация, вычисление метрик и подготовка отчетов на основе данных.\n",
+      "reviewed_at": "2026-03-30"
+    },
+    "guarantees": [],
+    "updated_at": "2026-03-30"
+  },
+  {
     "slug": "tasks",
     "title": "Tasks",
-    "short_description": "use this in the case user asks you to create a new task, to check the status of existing tasks, to close tasks, and to register bugs. Also use this skill to get the most important task to work on.\n",
-    "full_description": "use this in the case user asks you to create a new task, to check the status of existing tasks, to close tasks, and to register bugs. Also use this skill to get the most important task to work on.\n",
+    "short_description": "Use this in the case user asks you to create a new task, to check the status of existing tasks, to close tasks, and to register bugs. Also use this skill to get the most important task to work on.\n",
+    "full_description": "Use this in the case user asks you to create a new task, to check the status of existing tasks, to close tasks, and to register bugs. Also use this skill to get the most important task to work on.\n",
     "tags": [
       "tasks",
       "todo",
@@ -27,8 +261,8 @@
       "label": "https://github.com/redsquad-tech/is-goose"
     },
     "license": {
-      "id": "TBD",
-      "url": ""
+      "id": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/"
     },
     "review": {
       "status": "reviewed",
@@ -37,5 +271,95 @@
     },
     "guarantees": [],
     "updated_at": "2026-03-25"
+  },
+  {
+    "slug": "transcribe",
+    "title": "Transcribe",
+    "short_description": "Transcribe audio files to text with optional diarization and known-speaker hints.  Use when a user asks to transcribe speech from audio/video, extract text from recordings, or label speakers in interviews or meetings.\n",
+    "full_description": "Transcribe audio files to text with optional diarization and known-speaker hints.  Use when a user asks to transcribe speech from audio/video, extract text from recordings, or label speakers in interviews or meetings.\n",
+    "tags": [
+      "audio",
+      "transcription",
+      "speech-to-text",
+      "voice",
+      "audio-processing",
+      "text-extraction"
+    ],
+    "search_aliases": [
+      "аудио",
+      "расшифровать аудио",
+      "перевести речь в текст",
+      "что сказано в записи",
+      "транскрипция",
+      "распознать речь",
+      "расшифровка",
+      "голос в текст",
+      "speech to text",
+      "transcribe audio",
+      "audio to text",
+      "распознай аудио",
+      "сделай текст из записи"
+    ],
+    "source": {
+      "url": "https://github.com/openai/skills/tree/main/skills/.transcribe/slides",
+      "label": "https://github.com/openai/skills"
+    },
+    "license": {
+      "id": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "review": {
+      "status": "reviewed",
+      "summary": "Skill для работы с аудио: преобразование речи в текст (speech-to-text), расшифровка записей, извлечение содержания разговоров и подготовка текста для дальнейшего анализа.\n",
+      "reviewed_at": "2026-03-30"
+    },
+    "guarantees": [],
+    "updated_at": "2026-03-30"
+  },
+  {
+    "slug": "weavmail",
+    "title": "Weavmail",
+    "short_description": "Use weavmail CLI to manage emails for the current task. Use when you need to read, send, reply to, or move emails as part of completing a task.\n",
+    "full_description": "Use weavmail CLI to manage emails for the current task. Use when you need to read, send, reply to, or move emails as part of completing a task.\n",
+    "tags": [
+      "email",
+      "imap",
+      "mail",
+      "communication",
+      "data-sync",
+      "messages",
+      "integration"
+    ],
+    "search_aliases": [
+      "почта",
+      "email",
+      "письма",
+      "прочитать почту",
+      "найти письмо",
+      "поиск по почте",
+      "синхронизировать почту",
+      "imap",
+      "прочитай письма",
+      "что в почте",
+      "email sync",
+      "mail sync",
+      "read emails",
+      "search emails"
+    ],
+    "source": {
+      "url": "https://github.com/yankeguo/weavmail/blob/main/skills/weavmail",
+      "label": "https://github.com/yankeguo/weavmail"
+    },
+    "license": {
+      "id": "MIT",
+      "url": "https://opensource.org/licenses"
+    },
+    "review": {
+      "status": "reviewed",
+      "summary": "Skill для работы с электронной почтой через IMAP: синхронизация писем, поиск и чтение сообщений,  а также сохранение переписки в локальном виде (например, Markdown) для последующего анализа и обработки.\n",
+      "reviewed_at": "2026-03-30"
+    },
+    "guarantees": [],
+    "updated_at": "2026-03-30"
   }
 ]

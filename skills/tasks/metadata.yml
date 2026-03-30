@@ -28,7 +28,7 @@ catalog:
 skill:
   name: "tasks"
   description: >
-    use this in the case user asks you to create a new task, to check the status
+    Use this in the case user asks you to create a new task, to check the status
     of existing tasks, to close tasks, and to register bugs. Also use this skill
     to get the most important task to work on.
 
@@ -41,9 +41,8 @@ review:
   reviewed_at: "2026-03-25"
 
 license:
-  id: "TBD"
-  url: ""
-  notes: "Уточнить лицензию исходного репозитория перед публикацией."
+  id: "Apache 2.0"
+  url: "http://www.apache.org/licenses/"
 
 risk:
   network: false

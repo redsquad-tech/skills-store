@@ -1,0 +1,57 @@
+source:
+  repo: "https://github.com/openai/skills"
+  path: "main/skills/.curated/spreadsheet"
+  branch: "main"
+  url: "https://github.com/openai/skills/tree/main/skills/.spreadsheet/slides"
+  imported_at: "2026-03-30"
+
+catalog:
+  slug: "spreadsheet"
+  title: "Spreadsheet"
+  tags:
+    - "spreadsheets"
+    - "excel"
+    - "data-analysis"
+    - "tables"
+    - "data-processing"
+    - "analytics"
+    - "reporting"
+  search_aliases:
+    - "таблица"
+    - "excel"
+    - "xlsx"
+    - "google sheets"
+    - "проанализируй таблицу"
+    - "найди в таблице"
+    - "посчитай в таблице"
+    - "сводка по данным"
+    - "агрегировать данные"
+    - "фильтр таблицы"
+    - "обработай таблицу"
+    - "что в excel"
+    - "анализ данных"
+    - "сделай отчет"
+    - "analyze spreadsheet"
+    - "calculate metrics"
+
+skill:
+  name: "spreadsheet"
+  description: >
+    Use when tasks involve creating, editing, analyzing, or formatting spreadsheets (`.xlsx`, `.csv`, `.tsv`) with formula-aware workflows, cached recalculation, and visual review.
+
+review:
+  status: "reviewed"
+  summary: >
+    Skill для работы с табличными данными (Excel, Google Sheets): анализ,
+    фильтрация, агрегация, вычисление метрик и подготовка отчетов на основе данных.
+  reviewed_by: "store-team"
+  reviewed_at: "2026-03-30"
+
+license:
+  id: "Apache 2.0"
+  url: "http://www.apache.org/licenses/"
+
+policy:
+  featured: false
+  hidden: false
+  replacement: ""
