@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import hashlib
-import os
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
@@ -56,6 +55,27 @@ def run_markitdown(source_file: Path) -> str:
     return result.stdout.strip()
 
 
+def refresh_qmd_index() -> None:
+    """Best-effort qmd index refresh for derived markdown docs."""
+    candidates = [
+        ["qmd", "index", str(DST_DIR)],
+        ["qmd", "index"],
+    ]
+
+    for cmd in candidates:
+        try:
+            subprocess.run(cmd, check=True, capture_output=True, text=True)
+            print(f"[OK] qmd index refreshed: {' '.join(cmd)}")
+            return
+        except FileNotFoundError:
+            print("[WARN] qmd is not installed, skipping index refresh")
+            return
+        except subprocess.CalledProcessError:
+            continue
+
+    print("[WARN] qmd index refresh failed. Run qmd index manually.")
+
+
 def ingest_file(source_file: Path) -> Path:
     doc_id = doc_id_for(source_file)
     output_file = DST_DIR / f"{source_file.stem}.md"
@@ -101,6 +121,9 @@ def main() -> int:
         except Exception as exc:
             failed += 1
             print(f"[ERROR] Failed to process {source_file.name}: {exc}")
+
+    if processed and failed == 0:
+        refresh_qmd_index()
 
     print(f"[DONE] processed={processed} failed={failed}")
     return 1 if failed else 0

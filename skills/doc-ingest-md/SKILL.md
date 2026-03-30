@@ -2,45 +2,44 @@
 
 ## When to use
 
-Use this skill when the user asks to: 
-- process documents 
-- convert files to markdown 
-- prepare documents for search or indexing 
+Use this skill when the user asks to:
+- process documents
+- convert files to markdown
+- prepare documents for search or indexing
 - ingest files into the vault
 
 ---
 
 ## What it does
 
-This skill converts documents from the source folder into Markdown
-format and stores them in the vault for further indexing and search.
+Converts files from `vault/docs/source/` into markdown files in `vault/docs/derived-md/`.
+
+After ingest, it refreshes qmd index (best-effort), so search becomes available immediately.
 
 ---
 
 ## Input
 
-vault/docs/source/
+`vault/docs/source/`
 
 ## Output
 
-vault/docs/derived-md/
+`vault/docs/derived-md/`
 
 ---
 
 ## Steps
 
-1.  Scan files in `vault/docs/source/`
-2.  For each file:
-    -   read content
-    -   convert to Markdown using MarkItDown
-3.  Save result to `vault/docs/derived-md/`
-4.  Add metadata block to each file
+1. Scan files in `vault/docs/source/`
+2. Convert each file to markdown via MarkItDown
+3. Save output into `vault/docs/derived-md/` with metadata frontmatter
+4. Trigger qmd index refresh
 
 ---
 
 ## Metadata format
 
-``` yaml
+```yaml
 id: doc-<hash>
 type: doc
 title: <filename>
@@ -52,33 +51,20 @@ updated_at: <timestamp>
 
 ---
 
-## Behavior
-
--   Do not modify source files
--   Re-run safely (idempotent)
--   Skip already processed files if unchanged
-
----
-
-## Dependencies
-
--   MarkItDown
-(pip install markitdown[all])
-
----
-
 ## Execution
 
-When user asks to process documents:
+```bash
+python scripts/ingest_docs.py
+```
 
-1.  Read files from `vault/docs/source/`
-2.  Convert them to Markdown
-3.  Save results to `vault/docs/derived-md/`
+Then search:
+
+```bash
+qmd search "<query>" vault/docs/derived-md || qmd search "<query>"
+```
 
 ---
 
-## Implementation
+## Pipeline (DoD)
 
-Script: scripts/ingest_docs.py
-
-Run: python scripts/ingest_docs.py
+`source doc -> derived-md -> qmd search`
