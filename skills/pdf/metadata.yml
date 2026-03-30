@@ -7,7 +7,7 @@ source:
 
 catalog:
   slug: "pdf"
-  title: "Pdf"
+  title: "Анализ PDF"
   tags:
     - "pdf"
     - "documents"

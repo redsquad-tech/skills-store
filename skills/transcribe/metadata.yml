@@ -7,7 +7,7 @@ source:
 
 catalog:
   slug: "transcribe"
-  title: "Transcribe"
+  title: "Расшифровка аудио"
   tags:
     - "audio"
     - "transcription"

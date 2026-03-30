@@ -1,7 +1,7 @@
 [
   {
     "slug": "doc",
-    "title": "Doc",
+    "title": "Обработка текстовых документов",
     "short_description": "Use when the task involves reading, creating, or editing `.docx` documents, especially when formatting or layout fidelity matters;  prefer `python-docx` plus the bundled `scripts/render_docx.py` for visual checks.\n",
     "full_description": "Use when the task involves reading, creating, or editing `.docx` documents, especially when formatting or layout fidelity matters;  prefer `python-docx` plus the bundled `scripts/render_docx.py` for visual checks.\n",
     "tags": [
@@ -50,7 +50,7 @@
   },
   {
     "slug": "pdf",
-    "title": "Pdf",
+    "title": "Анализ PDF",
     "short_description": "Use when tasks involve reading, creating, or reviewing PDF files where rendering and layout matter;  prefer visual checks by rendering pages (Poppler) and use Python tools such as `reportlab`, `pdfplumber`, and `pypdf` for generation and extraction.\n",
     "full_description": "Use when tasks involve reading, creating, or reviewing PDF files where rendering and layout matter;  prefer visual checks by rendering pages (Poppler) and use Python tools such as `reportlab`, `pdfplumber`, and `pypdf` for generation and extraction.\n",
     "tags": [
@@ -95,7 +95,7 @@
   },
   {
     "slug": "screenshot",
-    "title": "Screenshot",
+    "title": "Анализ изображений и скриншотов",
     "short_description": "Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region),  or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.\n",
     "full_description": "Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region),  or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.\n",
     "tags": [
@@ -140,7 +140,7 @@
   },
   {
     "slug": "slides",
-    "title": "Slides",
+    "title": "Работа с презентациями",
     "short_description": "Create and edit presentation slide decks (`.pptx`) with PptxGenJS, bundled layout helpers, and render/validation utilities.  Use when tasks involve building a new PowerPoint deck, recreating slides from screenshots/PDFs/reference decks, modifying slide content while preserving editable output,  adding charts/diagrams/visuals, or diagnosing layout issues such as overflow, overlaps, and font substitution.\n",
     "full_description": "Create and edit presentation slide decks (`.pptx`) with PptxGenJS, bundled layout helpers, and render/validation utilities.  Use when tasks involve building a new PowerPoint deck, recreating slides from screenshots/PDFs/reference decks, modifying slide content while preserving editable output,  adding charts/diagrams/visuals, or diagnosing layout issues such as overflow, overlaps, and font substitution.\n",
     "tags": [
@@ -187,7 +187,7 @@
   },
   {
     "slug": "spreadsheet",
-    "title": "Spreadsheet",
+    "title": "Анализ таблиц",
     "short_description": "Use when tasks involve creating, editing, analyzing, or formatting spreadsheets (`.xlsx`, `.csv`, `.tsv`) with formula-aware workflows, cached recalculation, and visual review.\n",
     "full_description": "Use when tasks involve creating, editing, analyzing, or formatting spreadsheets (`.xlsx`, `.csv`, `.tsv`) with formula-aware workflows, cached recalculation, and visual review.\n",
     "tags": [
@@ -235,7 +235,7 @@
   },
   {
     "slug": "tasks",
-    "title": "Tasks",
+    "title": "Работа с задачами",
     "short_description": "Use this in the case user asks you to create a new task, to check the status of existing tasks, to close tasks, and to register bugs. Also use this skill to get the most important task to work on.\n",
     "full_description": "Use this in the case user asks you to create a new task, to check the status of existing tasks, to close tasks, and to register bugs. Also use this skill to get the most important task to work on.\n",
     "tags": [
@@ -274,7 +274,7 @@
   },
   {
     "slug": "transcribe",
-    "title": "Transcribe",
+    "title": "Расшифровка аудио",
     "short_description": "Transcribe audio files to text with optional diarization and known-speaker hints.  Use when a user asks to transcribe speech from audio/video, extract text from recordings, or label speakers in interviews or meetings.\n",
     "full_description": "Transcribe audio files to text with optional diarization and known-speaker hints.  Use when a user asks to transcribe speech from audio/video, extract text from recordings, or label speakers in interviews or meetings.\n",
     "tags": [
@@ -318,7 +318,7 @@
   },
   {
     "slug": "weavmail",
-    "title": "Weavmail",
+    "title": "Работа с почтой",
     "short_description": "Use weavmail CLI to manage emails for the current task. Use when you need to read, send, reply to, or move emails as part of completing a task.\n",
     "full_description": "Use weavmail CLI to manage emails for the current task. Use when you need to read, send, reply to, or move emails as part of completing a task.\n",
     "tags": [
