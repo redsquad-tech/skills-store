@@ -48,7 +48,7 @@ review:
   reviewed_at: "2026-03-30"
 
 license:
-  id: "Apache-2.0"
+  id: "Apache 2.0"
   url: "http://www.apache.org/licenses/"
 
 policy:

@@ -1,5 +1,154 @@
 [
   {
+    "slug": "doc",
+    "title": "Doc",
+    "tags": [
+      "documents",
+      "doc",
+      "text-processing",
+      "file-processing",
+      "document-analysis",
+      "content-extraction",
+      "markdown"
+    ],
+    "search_aliases": [
+      "документ",
+      "прочитать документ",
+      "открыть файл",
+      "извлечь текст",
+      "анализ документа",
+      "прочитай файл",
+      "что в документе",
+      "найди в документе",
+      "обработай документ",
+      "конвертировать документ",
+      "doc файл",
+      "word документ",
+      "docx",
+      "текстовый файл",
+      "прочитать doc",
+      "extract document text",
+      "analyze document"
+    ]
+  },
+  {
+    "slug": "pdf",
+    "title": "Pdf",
+    "tags": [
+      "pdf",
+      "documents",
+      "text-extraction",
+      "file-processing",
+      "document-analysis",
+      "ocr",
+      "data-extraction"
+    ],
+    "search_aliases": [
+      "pdf",
+      "документ pdf",
+      "прочитать pdf",
+      "извлечь текст из pdf",
+      "распарсить pdf",
+      "анализ pdf",
+      "найти в pdf",
+      "конвертировать pdf",
+      "pdf в текст",
+      "pdf в markdown",
+      "прочитай файл",
+      "обработай документ",
+      "extract pdf text"
+    ]
+  },
+  {
+    "slug": "screenshot",
+    "title": "Screenshot",
+    "tags": [
+      "images",
+      "screenshot",
+      "ocr",
+      "image-analysis",
+      "vision",
+      "text-extraction",
+      "ui-analysis"
+    ],
+    "search_aliases": [
+      "скриншот",
+      "анализ изображения",
+      "что на картинке",
+      "прочитай текст с картинки",
+      "извлечь текст с изображения",
+      "распознать текст",
+      "ocr",
+      "проанализируй скрин",
+      "что изображено",
+      "найди текст на скриншоте",
+      "прочитай изображение",
+      "image analysis",
+      "extract text from image"
+    ]
+  },
+  {
+    "slug": "slides",
+    "title": "Slides",
+    "tags": [
+      "presentations",
+      "slides",
+      "ppt",
+      "pptx",
+      "document-analysis",
+      "content-extraction",
+      "visual-content"
+    ],
+    "search_aliases": [
+      "презентация",
+      "слайды",
+      "прочитать презентацию",
+      "анализ презентации",
+      "что в слайдах",
+      "извлечь текст из презентации",
+      "ppt",
+      "pptx",
+      "powerpoint",
+      "google slides",
+      "прочитай слайды",
+      "найди в презентации",
+      "разбери презентацию",
+      "extract slides content",
+      "analyze presentation"
+    ]
+  },
+  {
+    "slug": "spreadsheet",
+    "title": "Spreadsheet",
+    "tags": [
+      "spreadsheets",
+      "excel",
+      "data-analysis",
+      "tables",
+      "data-processing",
+      "analytics",
+      "reporting"
+    ],
+    "search_aliases": [
+      "таблица",
+      "excel",
+      "xlsx",
+      "google sheets",
+      "проанализируй таблицу",
+      "найди в таблице",
+      "посчитай в таблице",
+      "сводка по данным",
+      "агрегировать данные",
+      "фильтр таблицы",
+      "обработай таблицу",
+      "что в excel",
+      "анализ данных",
+      "сделай отчет",
+      "analyze spreadsheet",
+      "calculate metrics"
+    ]
+  },
+  {
     "slug": "tasks",
     "title": "Tasks",
     "tags": [
@@ -19,6 +168,62 @@
       "закрыть задачу",
       "создать задачу",
       "task tracker"
+    ]
+  },
+  {
+    "slug": "transcribe",
+    "title": "Transcribe",
+    "tags": [
+      "audio",
+      "transcription",
+      "speech-to-text",
+      "voice",
+      "audio-processing",
+      "text-extraction"
+    ],
+    "search_aliases": [
+      "аудио",
+      "расшифровать аудио",
+      "перевести речь в текст",
+      "что сказано в записи",
+      "транскрипция",
+      "распознать речь",
+      "расшифровка",
+      "голос в текст",
+      "speech to text",
+      "transcribe audio",
+      "audio to text",
+      "распознай аудио",
+      "сделай текст из записи"
+    ]
+  },
+  {
+    "slug": "weavmail",
+    "title": "Weavmail",
+    "tags": [
+      "email",
+      "imap",
+      "mail",
+      "communication",
+      "data-sync",
+      "messages",
+      "integration"
+    ],
+    "search_aliases": [
+      "почта",
+      "email",
+      "письма",
+      "прочитать почту",
+      "найти письмо",
+      "поиск по почте",
+      "синхронизировать почту",
+      "imap",
+      "прочитай письма",
+      "что в почте",
+      "email sync",
+      "mail sync",
+      "read emails",
+      "search emails"
     ]
   }
 ]
