@@ -7,7 +7,7 @@ source:
 
 catalog:
   slug: "doc"
-  title: "Doc"
+  title: "Обработка текстовых документов"
   tags:
     - "documents"
     - "doc"

@@ -7,7 +7,7 @@ source:
 
 catalog:
   slug: "tasks"
-  title: "Tasks"
+  title: "Работа с задачами"
   tags:
     - "tasks"
     - "todo"

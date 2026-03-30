@@ -7,7 +7,7 @@ source:
 
 catalog:
   slug: "screenshot"
-  title: "Screenshot"
+  title: "Анализ изображений и скриншотов"
   tags:
     - "images"
     - "screenshot"

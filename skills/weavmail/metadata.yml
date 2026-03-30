@@ -7,7 +7,7 @@ source:
 
 catalog:
   slug: "weavmail"
-  title: "Weavmail"
+  title: "Работа с почтой"
   tags:
     - "email"
     - "imap"

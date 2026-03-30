@@ -1,7 +1,7 @@
 [
   {
     "slug": "doc",
-    "title": "Doc",
+    "title": "Обработка текстовых документов",
     "tags": [
       "documents",
       "doc",
@@ -33,7 +33,7 @@
   },
   {
     "slug": "pdf",
-    "title": "Pdf",
+    "title": "Анализ PDF",
     "tags": [
       "pdf",
       "documents",
@@ -61,7 +61,7 @@
   },
   {
     "slug": "screenshot",
-    "title": "Screenshot",
+    "title": "Анализ изображений и скриншотов",
     "tags": [
       "images",
       "screenshot",
@@ -89,7 +89,7 @@
   },
   {
     "slug": "slides",
-    "title": "Slides",
+    "title": "Работа с презентациями",
     "tags": [
       "presentations",
       "slides",
@@ -119,7 +119,7 @@
   },
   {
     "slug": "spreadsheet",
-    "title": "Spreadsheet",
+    "title": "Анализ таблиц",
     "tags": [
       "spreadsheets",
       "excel",
@@ -150,7 +150,7 @@
   },
   {
     "slug": "tasks",
-    "title": "Tasks",
+    "title": "Работа с задачами",
     "tags": [
       "tasks",
       "todo",
@@ -172,7 +172,7 @@
   },
   {
     "slug": "transcribe",
-    "title": "Transcribe",
+    "title": "Расшифровка аудио",
     "tags": [
       "audio",
       "transcription",
@@ -199,7 +199,7 @@
   },
   {
     "slug": "weavmail",
-    "title": "Weavmail",
+    "title": "Работа с почтой",
     "tags": [
       "email",
       "imap",

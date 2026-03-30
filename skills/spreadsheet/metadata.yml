@@ -7,7 +7,7 @@ source:
 
 catalog:
   slug: "spreadsheet"
-  title: "Spreadsheet"
+  title: "Анализ таблиц"
   tags:
     - "spreadsheets"
     - "excel"
