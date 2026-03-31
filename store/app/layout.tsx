@@ -16,6 +16,10 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: 'Каталог скиллов RC',
   description: 'Проверенные скиллы для бизнес-задач. У каждого скилла указан источник, лицензия и статус проверки.',
+  icons: {
+    icon: '/is-logo.svg',
+    apple: '/is-logo.svg',
+  },
 }
 
 export const viewport: Viewport = {
