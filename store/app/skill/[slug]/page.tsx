@@ -44,7 +44,7 @@ export default async function SkillPage({ params }: { params: Promise<{ slug: st
     .slice(0, 3)
 
   const hasSource = Boolean(skill.source?.url?.trim())
-  const isReviewPassed = ["verified", "reviewed", "basic-tested", "limitations"].includes(skill.review.status)
+  const isReviewPurple = ["verified", "reviewed"].includes(skill.review.status)
   const reviewLabel = skill.review.status === "reviewed" ? "Проверен" : statusLabels[skill.review.status]
 
   return (
@@ -66,6 +66,9 @@ export default async function SkillPage({ params }: { params: Promise<{ slug: st
               <div>
                 <div className="flex items-center gap-3 mb-3 flex-wrap">
                   <h1 className="text-2xl font-bold text-[#111827]">{skill.title}</h1>
+                  <span className={`inline-flex items-center px-2.5 py-1 text-xs font-medium rounded-full border ${isReviewPurple ? 'bg-[#f3e8ff] text-[#7c3aed] border-[#e9d5ff]' : 'bg-[#f9fafb] text-[#6b7280] border-[#e5e7eb]'}`}>
+                    {reviewLabel}
+                  </span>
                 </div>
                 <p className="text-[#6b7280] leading-relaxed">{skill.short_description}</p>
               </div>
@@ -147,8 +150,8 @@ export default async function SkillPage({ params }: { params: Promise<{ slug: st
                 </div>
                 <div className="p-5">
                   <div className="flex items-center gap-2 text-sm text-[#374151]">
-                    <div className={`w-7 h-7 rounded-md flex items-center justify-center ${isReviewPassed ? 'bg-[#f3e8ff]' : ''}`}>
-                      <ShieldCheck className={`w-4 h-4 ${isReviewPassed ? 'text-[#7c3aed]' : 'text-[#6b7280]'}`} />
+                    <div className={`w-7 h-7 rounded-md flex items-center justify-center ${isReviewPurple ? 'bg-[#f3e8ff]' : ''}`}>
+                      <ShieldCheck className={`w-4 h-4 ${isReviewPurple ? 'text-[#7c3aed]' : 'text-[#6b7280]'}`} />
                     </div>
                     <span>{reviewLabel}</span>
                   </div>

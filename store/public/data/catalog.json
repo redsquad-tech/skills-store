@@ -355,7 +355,7 @@
       "url": "https://opensource.org/licenses"
     },
     "review": {
-      "status": "limitations",
+      "status": "basic-tested",
       "summary": "Skill для работы с электронной почтой через IMAP: синхронизация писем, поиск и чтение сообщений,  а также сохранение переписки в локальном виде (например, Markdown) для последующего анализа и обработки.\n",
       "reviewed_at": "2026-03-30"
     },
