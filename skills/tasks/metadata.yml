@@ -28,9 +28,10 @@ catalog:
 skill:
   name: "tasks"
   description: >
-    Use this in the case user asks you to create a new task, to check the status
-    of existing tasks, to close tasks, and to register bugs. Also use this skill
-    to get the most important task to work on.
+    Используйте этот скилл для управления задачами: создать новую задачу, проверить статус существующих, закрыть выполненные и зарегистрировать баги. Также применяйте его, чтобы определить наиболее приоритетную задачу для работы.
+
+  description_short: >
+    Управление задачами и багами, включая приоритизацию.
 
 review:
   status: "reviewed"

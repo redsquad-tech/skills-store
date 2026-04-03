@@ -33,7 +33,7 @@ function normalizeSkill(slug, metadata) {
   return {
     slug: slug,
     title: metadata.catalog.title,
-    short_description: metadata.skill?.description || '',
+    short_description: metadata.skill?.description_short || metadata.skill?.description || '',
     full_description: metadata.skill?.description || '',
     tags: tags.map(t => t.toLowerCase()).filter((v, i, a) => a.indexOf(v) === i),
     search_aliases: searchAliases.map(a => a.toLowerCase()),

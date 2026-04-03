@@ -43,6 +43,8 @@ export default async function SkillPage({ params }: { params: Promise<{ slug: st
     .filter((s) => s.tags.some(t => skill.tags.includes(t)) && s.slug !== skill.slug)
     .slice(0, 3)
 
+  const hasSource = Boolean(skill.source?.url?.trim())
+
   return (
     <div className="min-h-screen bg-[#ffffff]">
       <Header />
@@ -96,8 +98,8 @@ export default async function SkillPage({ params }: { params: Promise<{ slug: st
                 </div>
                 <div className="p-5">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-[#f3f4f6] flex items-center justify-center">
-                      <GitBranch className="w-5 h-5 text-[#6b7280]" />
+                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${hasSource ? 'bg-[#ecfdf5]' : 'bg-[#f3f4f6]'}`}>
+                      <GitBranch className={`w-5 h-5 ${hasSource ? 'text-[#059669]' : 'text-[#6b7280]'}`} />
                     </div>
                     <div>
                       <a 

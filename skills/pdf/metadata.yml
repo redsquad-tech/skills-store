@@ -34,8 +34,10 @@ catalog:
 skill:
   name: "pdf"
   description: >
-    Use when tasks involve reading, creating, or reviewing PDF files where rendering and layout matter; 
-    prefer visual checks by rendering pages (Poppler) and use Python tools such as `reportlab`, `pdfplumber`, and `pypdf` for generation and extraction.
+    Используйте этот скилл для чтения, создания и проверки PDF, когда важны отображение и структура документа. Для визуальной проверки рекомендуется рендерить страницы (Poppler), а для генерации и извлечения данных использовать `reportlab`, `pdfplumber` и `pypdf`.
+
+  description_short: >
+    Работа с PDF: чтение, извлечение данных и проверка отображения.
 
 review:
   status: "reviewed"
