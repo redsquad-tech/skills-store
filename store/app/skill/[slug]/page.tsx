@@ -1,7 +1,7 @@
 import fs from "fs"
 import path from "path"
 import { notFound } from "next/navigation"
-import { ArrowLeft, ExternalLink, Scale, GitBranch } from "lucide-react"
+import { ArrowLeft, ExternalLink, Scale, GitBranch, ShieldCheck } from "lucide-react"
 import { Header } from "@/components/header"
 import { statusLabels, type Skill } from "@/lib/skills-data"
 import Link from "next/link"
@@ -66,7 +66,8 @@ export default async function SkillPage({ params }: { params: Promise<{ slug: st
               <div>
                 <div className="flex items-center gap-3 mb-3 flex-wrap">
                   <h1 className="text-2xl font-bold text-[#111827]">{skill.title}</h1>
-                  <span className={`inline-flex items-center px-2.5 py-1 text-xs font-medium rounded-full border ${isReviewed ? 'bg-[#f3e8ff] text-[#7c3aed] border-[#e9d5ff]' : 'bg-[#f9fafb] text-[#6b7280] border-[#e5e7eb]'}`}>
+                  <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-full border ${isReviewed ? 'bg-[#f3e8ff] text-[#7c3aed] border-[#e9d5ff]' : 'bg-[#f9fafb] text-[#6b7280] border-[#e5e7eb]'}`}>
+                    <ShieldCheck className="w-3.5 h-3.5" />
                     {reviewLabel}
                   </span>
                 </div>
