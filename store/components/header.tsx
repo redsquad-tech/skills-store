@@ -7,7 +7,7 @@ export function Header() {
       <div className="max-w-5xl mx-auto px-6 h-14 flex items-center">
         <Link href="/" className="flex items-center gap-2.5">
           <Image
-            src="is-logo.svg"
+            src="/is-logo.svg"
             alt="Insightstream"
             width={32}
             height={32}

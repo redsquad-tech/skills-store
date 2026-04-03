@@ -1,4 +1,4 @@
-export type VerificationStatus = "verified" | "basic-tested" | "limitations" | "outdated" | "not-recommended" | "not-reviewed"
+export type VerificationStatus = "verified" | "reviewed" | "basic-tested" | "limitations" | "outdated" | "not-recommended" | "not-reviewed"
 
 export type Skill = {
   slug: string
@@ -42,6 +42,7 @@ export type Manifest = {
 
 export const statusLabels: Record<VerificationStatus, string> = {
   "verified": "Проверен",
+  "reviewed": "Проверен",
   "basic-tested": "Базово протестирован",
   "limitations": "Есть ограничения",
   "outdated": "Устарел",
@@ -51,6 +52,7 @@ export const statusLabels: Record<VerificationStatus, string> = {
 
 export const statusColors: Record<VerificationStatus, string> = {
   "verified": "bg-emerald-50 text-emerald-700 border-emerald-200",
+  "reviewed": "bg-emerald-50 text-emerald-700 border-emerald-200",
   "basic-tested": "bg-sky-50 text-sky-700 border-sky-200",
   "limitations": "bg-amber-50 text-amber-700 border-amber-200",
   "outdated": "bg-stone-100 text-stone-500 border-stone-200",

@@ -1,9 +1,9 @@
 import fs from "fs"
 import path from "path"
 import { notFound } from "next/navigation"
-import { ArrowLeft, ExternalLink, Scale, GitBranch, CheckCircle2 } from "lucide-react"
+import { ArrowLeft, ExternalLink, Scale, GitBranch, ShieldCheck } from "lucide-react"
 import { Header } from "@/components/header"
-import { statusLabels, statusColors, type Skill } from "@/lib/skills-data"
+import { statusLabels, type Skill } from "@/lib/skills-data"
 import Link from "next/link"
 
 function getSkills(): Skill[] {
@@ -43,6 +43,10 @@ export default async function SkillPage({ params }: { params: Promise<{ slug: st
     .filter((s) => s.tags.some(t => skill.tags.includes(t)) && s.slug !== skill.slug)
     .slice(0, 3)
 
+  const hasSource = Boolean(skill.source?.url?.trim())
+  const reviewLabel = statusLabels[skill.review.status]
+  const isReviewed = ["verified", "reviewed"].includes(skill.review.status)
+
   return (
     <div className="min-h-screen bg-[#ffffff]">
       <Header />
@@ -62,9 +66,9 @@ export default async function SkillPage({ params }: { params: Promise<{ slug: st
               <div>
                 <div className="flex items-center gap-3 mb-3 flex-wrap">
                   <h1 className="text-2xl font-bold text-[#111827]">{skill.title}</h1>
-                  <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-full border ${statusColors[skill.review.status]}`}>
-                    {skill.review.status === "verified" && <CheckCircle2 className="w-3.5 h-3.5" />}
-                    {statusLabels[skill.review.status]}
+                  <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-full border ${isReviewed ? 'bg-[#f3e8ff] text-[#7c3aed] border-[#e9d5ff]' : 'bg-[#f9fafb] text-[#6b7280] border-[#e5e7eb]'}`}>
+                    <ShieldCheck className="w-4 h-4" />
+                    {reviewLabel}
                   </span>
                 </div>
                 <p className="text-[#6b7280] leading-relaxed">{skill.short_description}</p>
@@ -96,8 +100,8 @@ export default async function SkillPage({ params }: { params: Promise<{ slug: st
                 </div>
                 <div className="p-5">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-[#f3f4f6] flex items-center justify-center">
-                      <GitBranch className="w-5 h-5 text-[#6b7280]" />
+                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${hasSource ? 'bg-[#ecfdf5]' : 'bg-[#f3f4f6]'}`}>
+                      <GitBranch className={`w-5 h-5 ${hasSource ? 'text-[#059669]' : 'text-[#6b7280]'}`} />
                     </div>
                     <div>
                       <a 
