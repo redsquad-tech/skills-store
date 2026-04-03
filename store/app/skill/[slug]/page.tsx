@@ -3,7 +3,7 @@ import path from "path"
 import { notFound } from "next/navigation"
 import { ArrowLeft, ExternalLink, Scale, GitBranch } from "lucide-react"
 import { Header } from "@/components/header"
-import { statusLabels, statusColors, type Skill } from "@/lib/skills-data"
+import { statusLabels, type Skill } from "@/lib/skills-data"
 import Link from "next/link"
 
 function getSkills(): Skill[] {
@@ -45,6 +45,7 @@ export default async function SkillPage({ params }: { params: Promise<{ slug: st
 
   const hasSource = Boolean(skill.source?.url?.trim())
   const reviewLabel = statusLabels[skill.review.status]
+  const isReviewed = ["verified", "reviewed"].includes(skill.review.status)
 
   return (
     <div className="min-h-screen bg-[#ffffff]">
@@ -65,7 +66,7 @@ export default async function SkillPage({ params }: { params: Promise<{ slug: st
               <div>
                 <div className="flex items-center gap-3 mb-3 flex-wrap">
                   <h1 className="text-2xl font-bold text-[#111827]">{skill.title}</h1>
-                  <span className={`inline-flex items-center px-2.5 py-1 text-xs font-medium rounded-full border ${statusColors[skill.review.status]}`}>
+                  <span className={`inline-flex items-center px-2.5 py-1 text-xs font-medium rounded-full border ${isReviewed ? 'bg-[#f3e8ff] text-[#7c3aed] border-[#e9d5ff]' : 'bg-[#f9fafb] text-[#6b7280] border-[#e5e7eb]'}`}>
                     {reviewLabel}
                   </span>
                 </div>
