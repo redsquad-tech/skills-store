@@ -38,8 +38,10 @@ catalog:
 skill:
   name: "pdf"
   description: >
-    Use when the task involves reading, creating, or editing `.docx` documents, especially when formatting or layout fidelity matters; 
-    prefer `python-docx` plus the bundled `scripts/render_docx.py` for visual checks.
+    Используйте этот скилл для чтения, создания и редактирования документов `.docx`, особенно когда важно сохранить форматирование и вёрстку. Для визуальной проверки предпочтительно использовать `python-docx` и скрипт `scripts/render_docx.py`.
+
+  description_short: >
+    Работа с `.docx`: чтение, редактирование и проверка форматирования.
 
 review:
   status: "reviewed"

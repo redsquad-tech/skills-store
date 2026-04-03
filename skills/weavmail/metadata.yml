@@ -35,7 +35,10 @@ catalog:
 skill:
   name: "weavmail"
   description: >
-    Use weavmail CLI to manage emails for the current task. Use when you need to read, send, reply to, or move emails as part of completing a task.
+    Используйте этот скилл для работы с email через CLI weavmail в рамках текущей задачи: читать, отправлять, отвечать и перемещать письма.
+
+  description_short: >
+    Работа с почтой: чтение, отправка, ответы и перемещение писем.
 
 review:
   status: "reviewed"

@@ -36,9 +36,10 @@ catalog:
 skill:
   name: "slides"
   description: >
-    Create and edit presentation slide decks (`.pptx`) with PptxGenJS, bundled layout helpers, and render/validation utilities. 
-    Use when tasks involve building a new PowerPoint deck, recreating slides from screenshots/PDFs/reference decks, modifying slide content while preserving editable output, 
-    adding charts/diagrams/visuals, or diagnosing layout issues such as overflow, overlaps, and font substitution.
+    Используйте этот скилл для создания и редактирования презентаций `.pptx` с помощью PptxGenJS и утилит проверки макета. Подходит для сборки новых деков, восстановления слайдов по скриншотам/PDF, редактирования содержимого с сохранением редактируемости и диагностики проблем вёрстки (переполнение, пересечения, замены шрифтов).
+
+  description_short: >
+    Создание и редактирование презентаций `.pptx` с проверкой макета.
 
 review:
   status: "reviewed"

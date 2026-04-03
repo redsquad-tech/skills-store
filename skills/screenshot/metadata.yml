@@ -34,8 +34,10 @@ catalog:
 skill:
   name: "screenshot"
   description: >
-    Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), 
-    or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.
+    Используйте этот скилл, когда нужно сделать системный или десктопный скриншот (весь экран, окно приложения или выделенную область), либо когда встроенные инструменты захвата недоступны и требуется снимок на уровне ОС.
+
+  description_short: >
+    Создание системных скриншотов экрана, окна или области.
 
 review:
   status: "reviewed"
