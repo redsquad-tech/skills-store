@@ -66,12 +66,6 @@ export default async function SkillPage({ params }: { params: Promise<{ slug: st
               <div>
                 <div className="flex items-center gap-3 mb-3 flex-wrap">
                   <h1 className="text-2xl font-bold text-[#111827]">{skill.title}</h1>
-                  <div className="flex items-center gap-2 text-sm text-[#374151]">
-                    <div className={`w-7 h-7 rounded-md flex items-center justify-center ${isReviewPassed ? 'bg-[#f3e8ff]' : ''}`}>
-                      <ShieldCheck className={`w-4 h-4 ${isReviewPassed ? 'text-[#7c3aed]' : 'text-[#6b7280]'}`} />
-                    </div>
-                    <span>{reviewLabel}</span>
-                  </div>
                 </div>
                 <p className="text-[#6b7280] leading-relaxed">{skill.short_description}</p>
               </div>
@@ -147,16 +141,22 @@ export default async function SkillPage({ params }: { params: Promise<{ slug: st
                 </div>
               </div>
 
-              {skill.review.summary && (
-                <div className="bg-white border border-[#e5e7eb] rounded-lg overflow-hidden">
-                  <div className="px-5 py-3 border-b border-[#e5e7eb] bg-[#f9fafb]">
-                    <h2 className="font-semibold text-[#111827]">Результат проверки</h2>
-                  </div>
-                  <div className="p-5">
-                    <p className="text-[#374151] leading-relaxed">{skill.review.summary}</p>
-                  </div>
+              <div className="bg-white border border-[#e5e7eb] rounded-lg overflow-hidden">
+                <div className="px-5 py-3 border-b border-[#e5e7eb] bg-[#f9fafb]">
+                  <h2 className="font-semibold text-[#111827]">Результат проверки</h2>
                 </div>
-              )}
+                <div className="p-5">
+                  <div className="flex items-center gap-2 text-sm text-[#374151]">
+                    <div className={`w-7 h-7 rounded-md flex items-center justify-center ${isReviewPassed ? 'bg-[#f3e8ff]' : ''}`}>
+                      <ShieldCheck className={`w-4 h-4 ${isReviewPassed ? 'text-[#7c3aed]' : 'text-[#6b7280]'}`} />
+                    </div>
+                    <span>{reviewLabel}</span>
+                  </div>
+                  {skill.review.summary && (
+                    <p className="text-[#374151] leading-relaxed mt-3">{skill.review.summary}</p>
+                  )}
+                </div>
+              </div>
             </div>
 
             <div className="space-y-4">

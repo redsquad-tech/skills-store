@@ -43,7 +43,7 @@ skill:
     Работа с таблицами Excel/CSV: анализ, формулы и форматирование.
 
 review:
-  status: "reviewed"
+  status: "basic-tested"
   summary: >
     Skill для работы с табличными данными (Excel, Google Sheets): анализ,
     фильтрация, агрегация, вычисление метрик и подготовка отчетов на основе данных.

@@ -41,7 +41,7 @@
       "url": "http://www.apache.org/licenses/"
     },
     "review": {
-      "status": "reviewed",
+      "status": "basic-tested",
       "summary": "Skill для работы с текстовыми документами: открыть файл, извлечь текст, проанализировать содержимое, найти информацию или подготовить документ для обработки и индексации.\n",
       "reviewed_at": "2026-03-30"
     },
@@ -86,7 +86,7 @@
       "url": "http://www.apache.org/licenses/"
     },
     "review": {
-      "status": "reviewed",
+      "status": "basic-tested",
       "summary": "Skill для работы с PDF-документами: извлечь текст, проанализировать содержимое, найти информацию или подготовить данные для дальнейшей обработки и индексации.\n",
       "reviewed_at": "2026-03-30"
     },
@@ -131,7 +131,7 @@
       "url": "http://www.apache.org/licenses/"
     },
     "review": {
-      "status": "reviewed",
+      "status": "basic-tested",
       "summary": "Skill для анализа скриншотов или изображений: извлечь текст, понять содержимое, описать интерфейс или найти информацию на изображении.\n",
       "reviewed_at": "2026-03-30"
     },
@@ -178,7 +178,7 @@
       "url": "http://www.apache.org/licenses/"
     },
     "review": {
-      "status": "reviewed",
+      "status": "basic-tested",
       "summary": "Skill для работы с презентациями (PPT, PPTX, Google Slides): извлечение текста со слайдов,  анализ структуры и содержания, поиск информации и подготовка данных для дальнейшей обработки или конвертации.\n",
       "reviewed_at": "2026-03-30"
     },
@@ -226,7 +226,7 @@
       "url": "http://www.apache.org/licenses/"
     },
     "review": {
-      "status": "reviewed",
+      "status": "basic-tested",
       "summary": "Skill для работы с табличными данными (Excel, Google Sheets): анализ, фильтрация, агрегация, вычисление метрик и подготовка отчетов на основе данных.\n",
       "reviewed_at": "2026-03-30"
     },
@@ -309,7 +309,7 @@
       "url": "http://www.apache.org/licenses/"
     },
     "review": {
-      "status": "reviewed",
+      "status": "basic-tested",
       "summary": "Skill для работы с аудио: преобразование речи в текст (speech-to-text), расшифровка записей, извлечение содержания разговоров и подготовка текста для дальнейшего анализа.\n",
       "reviewed_at": "2026-03-30"
     },
@@ -355,7 +355,7 @@
       "url": "https://opensource.org/licenses"
     },
     "review": {
-      "status": "reviewed",
+      "status": "limitations",
       "summary": "Skill для работы с электронной почтой через IMAP: синхронизация писем, поиск и чтение сообщений,  а также сохранение переписки в локальном виде (например, Markdown) для последующего анализа и обработки.\n",
       "reviewed_at": "2026-03-30"
     },
