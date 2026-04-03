@@ -30,13 +30,13 @@ export function SkillCard({ skill }: { skill: Skill }) {
         </div>
         
         <div className="pt-3 border-t border-[#e5e7eb] space-y-2.5">
-          <div className="flex items-center gap-4 text-xs text-[#6b7280]">
-            <span className="flex items-center gap-1.5">
-              <ExternalLink className="w-3.5 h-3.5" />
-              {skill.source.label}
+          <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3 text-xs text-[#6b7280]">
+            <span className="flex items-start gap-1.5 min-w-0">
+              <ExternalLink className="w-3.5 h-3.5 shrink-0 mt-0.5" />
+              <span className="line-clamp-2 break-all">{skill.source.label}</span>
             </span>
-            <span className="flex items-center gap-1.5">
-              <Scale className="w-3.5 h-3.5" />
+            <span className="flex items-center gap-1.5 whitespace-nowrap">
+              <Scale className="w-3.5 h-3.5 shrink-0" />
               {skill.license.id}
             </span>
           </div>
