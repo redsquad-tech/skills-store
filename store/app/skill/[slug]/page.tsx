@@ -1,9 +1,9 @@
 import fs from "fs"
 import path from "path"
 import { notFound } from "next/navigation"
-import { ArrowLeft, ExternalLink, Scale, GitBranch, CheckCircle2 } from "lucide-react"
+import { ArrowLeft, ExternalLink, Scale, GitBranch, ShieldCheck } from "lucide-react"
 import { Header } from "@/components/header"
-import { statusLabels, statusColors, type Skill } from "@/lib/skills-data"
+import { statusLabels, type Skill } from "@/lib/skills-data"
 import Link from "next/link"
 
 function getSkills(): Skill[] {
@@ -44,6 +44,8 @@ export default async function SkillPage({ params }: { params: Promise<{ slug: st
     .slice(0, 3)
 
   const hasSource = Boolean(skill.source?.url?.trim())
+  const isReviewPassed = ["verified", "reviewed", "basic-tested", "limitations"].includes(skill.review.status)
+  const reviewLabel = skill.review.status === "reviewed" ? "Проверен" : statusLabels[skill.review.status]
 
   return (
     <div className="min-h-screen bg-[#ffffff]">
@@ -64,10 +66,12 @@ export default async function SkillPage({ params }: { params: Promise<{ slug: st
               <div>
                 <div className="flex items-center gap-3 mb-3 flex-wrap">
                   <h1 className="text-2xl font-bold text-[#111827]">{skill.title}</h1>
-                  <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-full border ${statusColors[skill.review.status]}`}>
-                    {skill.review.status === "verified" && <CheckCircle2 className="w-3.5 h-3.5" />}
-                    {statusLabels[skill.review.status]}
-                  </span>
+                  <div className="flex items-center gap-2 text-sm text-[#374151]">
+                    <div className={`w-7 h-7 rounded-md flex items-center justify-center ${isReviewPassed ? 'bg-[#f3e8ff]' : ''}`}>
+                      <ShieldCheck className={`w-4 h-4 ${isReviewPassed ? 'text-[#7c3aed]' : 'text-[#6b7280]'}`} />
+                    </div>
+                    <span>{reviewLabel}</span>
+                  </div>
                 </div>
                 <p className="text-[#6b7280] leading-relaxed">{skill.short_description}</p>
               </div>
