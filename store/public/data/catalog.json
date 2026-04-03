@@ -2,8 +2,8 @@
   {
     "slug": "doc",
     "title": "Обработка текстовых документов",
-    "short_description": "Use when the task involves reading, creating, or editing `.docx` documents, especially when formatting or layout fidelity matters;  prefer `python-docx` plus the bundled `scripts/render_docx.py` for visual checks.\n",
-    "full_description": "Use when the task involves reading, creating, or editing `.docx` documents, especially when formatting or layout fidelity matters;  prefer `python-docx` plus the bundled `scripts/render_docx.py` for visual checks.\n",
+    "short_description": "Работа с `.docx`: чтение, редактирование и проверка форматирования.\n",
+    "full_description": "Используйте этот скилл для чтения, создания и редактирования документов `.docx`, особенно когда важно сохранить форматирование и вёрстку. Для визуальной проверки предпочтительно использовать `python-docx` и скрипт `scripts/render_docx.py`.\n",
     "tags": [
       "documents",
       "doc",
@@ -51,8 +51,8 @@
   {
     "slug": "pdf",
     "title": "Анализ PDF",
-    "short_description": "Use when tasks involve reading, creating, or reviewing PDF files where rendering and layout matter;  prefer visual checks by rendering pages (Poppler) and use Python tools such as `reportlab`, `pdfplumber`, and `pypdf` for generation and extraction.\n",
-    "full_description": "Use when tasks involve reading, creating, or reviewing PDF files where rendering and layout matter;  prefer visual checks by rendering pages (Poppler) and use Python tools such as `reportlab`, `pdfplumber`, and `pypdf` for generation and extraction.\n",
+    "short_description": "Работа с PDF: чтение, извлечение данных и проверка отображения.\n",
+    "full_description": "Используйте этот скилл для чтения, создания и проверки PDF, когда важны отображение и структура документа. Для визуальной проверки рекомендуется рендерить страницы (Poppler), а для генерации и извлечения данных использовать `reportlab`, `pdfplumber` и `pypdf`.\n",
     "tags": [
       "pdf",
       "documents",
@@ -96,8 +96,8 @@
   {
     "slug": "screenshot",
     "title": "Анализ изображений и скриншотов",
-    "short_description": "Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region),  or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.\n",
-    "full_description": "Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region),  or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.\n",
+    "short_description": "Создание системных скриншотов экрана, окна или области.\n",
+    "full_description": "Используйте этот скилл, когда нужно сделать системный или десктопный скриншот (весь экран, окно приложения или выделенную область), либо когда встроенные инструменты захвата недоступны и требуется снимок на уровне ОС.\n",
     "tags": [
       "images",
       "screenshot",
@@ -141,8 +141,8 @@
   {
     "slug": "slides",
     "title": "Работа с презентациями",
-    "short_description": "Create and edit presentation slide decks (`.pptx`) with PptxGenJS, bundled layout helpers, and render/validation utilities.  Use when tasks involve building a new PowerPoint deck, recreating slides from screenshots/PDFs/reference decks, modifying slide content while preserving editable output,  adding charts/diagrams/visuals, or diagnosing layout issues such as overflow, overlaps, and font substitution.\n",
-    "full_description": "Create and edit presentation slide decks (`.pptx`) with PptxGenJS, bundled layout helpers, and render/validation utilities.  Use when tasks involve building a new PowerPoint deck, recreating slides from screenshots/PDFs/reference decks, modifying slide content while preserving editable output,  adding charts/diagrams/visuals, or diagnosing layout issues such as overflow, overlaps, and font substitution.\n",
+    "short_description": "Создание и редактирование презентаций `.pptx` с проверкой макета.\n",
+    "full_description": "Используйте этот скилл для создания и редактирования презентаций `.pptx` с помощью PptxGenJS и утилит проверки макета. Подходит для сборки новых деков, восстановления слайдов по скриншотам/PDF, редактирования содержимого с сохранением редактируемости и диагностики проблем вёрстки (переполнение, пересечения, замены шрифтов).\n",
     "tags": [
       "presentations",
       "slides",
@@ -188,8 +188,8 @@
   {
     "slug": "spreadsheet",
     "title": "Анализ таблиц",
-    "short_description": "Use when tasks involve creating, editing, analyzing, or formatting spreadsheets (`.xlsx`, `.csv`, `.tsv`) with formula-aware workflows, cached recalculation, and visual review.\n",
-    "full_description": "Use when tasks involve creating, editing, analyzing, or formatting spreadsheets (`.xlsx`, `.csv`, `.tsv`) with formula-aware workflows, cached recalculation, and visual review.\n",
+    "short_description": "Работа с таблицами Excel/CSV: анализ, формулы и форматирование.\n",
+    "full_description": "Используйте этот скилл для создания, редактирования, анализа и форматирования таблиц (`.xlsx`, `.csv`, `.tsv`) с учётом формул, пересчёта и визуальной проверки.\n",
     "tags": [
       "spreadsheets",
       "excel",
@@ -236,8 +236,8 @@
   {
     "slug": "tasks",
     "title": "Работа с задачами",
-    "short_description": "Use this in the case user asks you to create a new task, to check the status of existing tasks, to close tasks, and to register bugs. Also use this skill to get the most important task to work on.\n",
-    "full_description": "Use this in the case user asks you to create a new task, to check the status of existing tasks, to close tasks, and to register bugs. Also use this skill to get the most important task to work on.\n",
+    "short_description": "Управление задачами и багами, включая приоритизацию.\n",
+    "full_description": "Используйте этот скилл для управления задачами: создать новую задачу, проверить статус существующих, закрыть выполненные и зарегистрировать баги. Также применяйте его, чтобы определить наиболее приоритетную задачу для работы.\n",
     "tags": [
       "tasks",
       "todo",
@@ -275,8 +275,8 @@
   {
     "slug": "transcribe",
     "title": "Расшифровка аудио",
-    "short_description": "Transcribe audio files to text with optional diarization and known-speaker hints.  Use when a user asks to transcribe speech from audio/video, extract text from recordings, or label speakers in interviews or meetings.\n",
-    "full_description": "Transcribe audio files to text with optional diarization and known-speaker hints.  Use when a user asks to transcribe speech from audio/video, extract text from recordings, or label speakers in interviews or meetings.\n",
+    "short_description": "Расшифровка аудио/видео в текст с разделением спикеров.\n",
+    "full_description": "Используйте этот скилл для расшифровки аудио в текст с поддержкой диаризации и подсказок по известным спикерам. Подходит для извлечения речи из аудио/видео, создания транскриптов и разметки участников интервью или встреч.\n",
     "tags": [
       "audio",
       "transcription",
@@ -319,8 +319,8 @@
   {
     "slug": "weavmail",
     "title": "Работа с почтой",
-    "short_description": "Use weavmail CLI to manage emails for the current task. Use when you need to read, send, reply to, or move emails as part of completing a task.\n",
-    "full_description": "Use weavmail CLI to manage emails for the current task. Use when you need to read, send, reply to, or move emails as part of completing a task.\n",
+    "short_description": "Работа с почтой: чтение, отправка, ответы и перемещение писем.\n",
+    "full_description": "Используйте этот скилл для работы с email через CLI weavmail в рамках текущей задачи: читать, отправлять, отвечать и перемещать письма.\n",
     "tags": [
       "email",
       "imap",

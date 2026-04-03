@@ -33,8 +33,10 @@ catalog:
 skill:
   name: "transcribe"
   description: >
-    Transcribe audio files to text with optional diarization and known-speaker hints. 
-    Use when a user asks to transcribe speech from audio/video, extract text from recordings, or label speakers in interviews or meetings.
+    Используйте этот скилл для расшифровки аудио в текст с поддержкой диаризации и подсказок по известным спикерам. Подходит для извлечения речи из аудио/видео, создания транскриптов и разметки участников интервью или встреч.
+
+  description_short: >
+    Расшифровка аудио/видео в текст с разделением спикеров.
 
 review:
   status: "reviewed"

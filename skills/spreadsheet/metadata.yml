@@ -37,7 +37,10 @@ catalog:
 skill:
   name: "spreadsheet"
   description: >
-    Use when tasks involve creating, editing, analyzing, or formatting spreadsheets (`.xlsx`, `.csv`, `.tsv`) with formula-aware workflows, cached recalculation, and visual review.
+    Используйте этот скилл для создания, редактирования, анализа и форматирования таблиц (`.xlsx`, `.csv`, `.tsv`) с учётом формул, пересчёта и визуальной проверки.
+
+  description_short: >
+    Работа с таблицами Excel/CSV: анализ, формулы и форматирование.
 
 review:
   status: "reviewed"
