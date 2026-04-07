@@ -68,4 +68,19 @@ python3 scripts/slides_test.py deck.pptx
 python3 scripts/detect_font.py deck.pptx --json
 ```
 
+Windows helper (PowerShell):
+```powershell
+# Render
+powershell -ExecutionPolicy Bypass -File scripts/slides_tools.ps1 -Action render -Deck deck.pptx -Output rendered
+
+# Montage
+powershell -ExecutionPolicy Bypass -File scripts/slides_tools.ps1 -Action montage -InputDir rendered -Output montage.png
+
+# Overflow
+powershell -ExecutionPolicy Bypass -File scripts/slides_tools.ps1 -Action overflow -Deck deck.pptx
+
+# Font check
+powershell -ExecutionPolicy Bypass -File scripts/slides_tools.ps1 -Action fonts -Deck deck.pptx -Json
+```
+
 Load `references/pptxgenjs-helpers.md` if you need the helper API summary or dependency details.

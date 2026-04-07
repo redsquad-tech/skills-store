@@ -20,6 +20,11 @@ Install once before first use:
 uv tool install weavmail
 ```
 
+Windows wrapper (PowerShell):
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/weavmail.ps1 mailbox
+```
+
 Configure an account (named `default`):
 
 ```bash

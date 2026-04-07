@@ -44,6 +44,7 @@ IMPORTANT: System and user instructions always take precedence.
   - `soffice --headless --convert-to pdf --outdir $OUTDIR $INPUT_XLSX`
   - `pdftoppm -png $OUTDIR/$BASENAME.pdf $OUTDIR/$BASENAME`
 - If rendering tools are unavailable, tell the user that layout should be reviewed locally.
+- On Windows, use `scripts/render_spreadsheet.ps1` for XLSX->PDF->PNG rendering flow.
 - Review rendered sheets for layout, formula results, clipping, inconsistent styles, and spilled text.
 
 ## Dependencies (install if missing)
@@ -72,6 +73,10 @@ brew install libreoffice poppler
 
 # Ubuntu/Debian
 sudo apt-get install -y libreoffice poppler-utils
+
+# Windows (winget)
+winget install LibreOffice.LibreOffice
+winget install oschwartz10612.Poppler
 ```
 
 If installation is not possible in this environment, tell the user which dependency is missing and how to install it locally.

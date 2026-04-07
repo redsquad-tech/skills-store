@@ -42,6 +42,9 @@ brew install poppler
 
 # Ubuntu/Debian
 sudo apt-get install -y poppler-utils
+
+# Windows (winget)
+winget install oschwartz10612.Poppler
 ```
 
 If installation isn't possible in this environment, tell the user which dependency is missing and how to install it locally.
@@ -52,6 +55,11 @@ No required environment variables.
 ## Rendering command
 ```
 pdftoppm -png $INPUT_PDF $OUTPUT_PREFIX
+```
+
+Windows helper (PowerShell):
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/render_pdf.ps1 -InputPdf C:\\path\\to\\file.pdf -OutputPrefix output/pdf/page
 ```
 
 ## Quality expectations
