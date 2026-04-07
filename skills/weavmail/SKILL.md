@@ -25,6 +25,12 @@ Windows wrapper (PowerShell):
 powershell -ExecutionPolicy Bypass -File scripts/weavmail.ps1 mailbox
 ```
 
+Windows mapping rule for all commands in this file:
+- Unix example: `weavmail <subcommand> ...`
+- Windows equivalent: `powershell -ExecutionPolicy Bypass -File scripts/weavmail.ps1 <subcommand> ...`
+
+This rule applies to every `weavmail` command shown below (`account config`, `mailbox`, `sync`, `move`, `trash`, `archive`, `send`, etc.).
+
 Configure an account (named `default`):
 
 ```bash

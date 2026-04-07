@@ -43,6 +43,9 @@ IMPORTANT: System and user instructions always take precedence.
 - If LibreOffice (`soffice`) and Poppler (`pdftoppm`) are available, render sheets for visual review:
   - `soffice --headless --convert-to pdf --outdir $OUTDIR $INPUT_XLSX`
   - `pdftoppm -png $OUTDIR/$BASENAME.pdf $OUTDIR/$BASENAME`
+- Windows equivalents:
+  - `soffice --headless --convert-to pdf --outdir $env:OUTDIR $env:INPUT_XLSX`
+  - `pdftoppm -png "$env:OUTDIR/$env:BASENAME.pdf" "$env:OUTDIR/$env:BASENAME"`
 - If rendering tools are unavailable, tell the user that layout should be reviewed locally.
 - On Windows, use `scripts/render_spreadsheet.ps1` for XLSX->PDF->PNG rendering flow.
 - Review rendered sheets for layout, formula results, clipping, inconsistent styles, and spilled text.

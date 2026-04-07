@@ -56,10 +56,14 @@ No required environment variables.
 ```
 pdftoppm -png $INPUT_PDF $OUTPUT_PREFIX
 ```
-
-Windows helper (PowerShell):
+Windows equivalent:
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts/render_pdf.ps1 -InputPdf C:\\path\\to\\file.pdf -OutputPrefix output/pdf/page
+pdftoppm -png $env:INPUT_PDF $env:OUTPUT_PREFIX
+```
+
+Windows one-shot helper (recommended):
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/render_pdf.ps1 -InputPdf C:\path\to\file.pdf -OutputPrefix output/pdf/page
 ```
 
 ## Quality expectations
