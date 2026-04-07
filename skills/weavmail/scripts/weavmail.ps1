@@ -12,7 +12,7 @@ if (Get-Command weavmail -ErrorAction SilentlyContinue) {
 }
 
 if (Get-Command uv -ErrorAction SilentlyContinue) {
-  & uv tool run weavmail @Args
+  & uv tool run --from weavmail weavmail @Args
   exit $LASTEXITCODE
 }
 

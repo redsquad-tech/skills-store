@@ -6,6 +6,14 @@ param(
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
+function Invoke-CheckedCommand {
+  param([Parameter(Mandatory = $true)][string[]]$Command)
+  & $Command[0] $Command[1..($Command.Length - 1)]
+  if ($LASTEXITCODE -ne 0) {
+    throw "Command failed with exit code $LASTEXITCODE: $($Command -join ' ')"
+  }
+}
+
 function Require-Command {
   param([Parameter(Mandatory = $true)][string]$Name)
   if (-not (Get-Command $Name -ErrorAction SilentlyContinue)) {
@@ -28,11 +36,11 @@ $prefix = Join-Path $outputFull $baseName
 Require-Command -Name "soffice"
 Require-Command -Name "pdftoppm"
 
-& soffice --headless --convert-to pdf --outdir $outputFull $inputFull
+Invoke-CheckedCommand -Command @("soffice", "--headless", "--convert-to", "pdf", "--outdir", $outputFull, $inputFull)
 if (-not (Test-Path -LiteralPath $pdfPath)) {
   throw "Expected converted PDF was not created: $pdfPath"
 }
 
-& pdftoppm -png $pdfPath $prefix
+Invoke-CheckedCommand -Command @("pdftoppm", "-png", $pdfPath, $prefix)
 Write-Output "PDF: $pdfPath"
 Write-Output "PNG prefix: $prefix"

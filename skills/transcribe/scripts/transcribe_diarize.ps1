@@ -20,3 +20,7 @@ if (Get-Command py -ErrorAction SilentlyContinue) {
 } else {
   throw "Python not found. Install Python 3 and retry."
 }
+
+if ($LASTEXITCODE -ne 0) {
+  throw "Transcription command failed with exit code $LASTEXITCODE"
+}

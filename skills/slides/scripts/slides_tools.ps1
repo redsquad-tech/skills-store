@@ -10,29 +10,43 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-$python = if (Get-Command py -ErrorAction SilentlyContinue) { "py" } else { "python" }
+$pythonCmd = if (Get-Command py -ErrorAction SilentlyContinue) {
+  @("py", "-3")
+} elseif (Get-Command python -ErrorAction SilentlyContinue) {
+  @("python")
+} else {
+  throw "Python not found. Install Python 3 and retry."
+}
+
+function Invoke-CheckedCommand {
+  param([Parameter(Mandatory = $true)][string[]]$Command)
+  & $Command[0] $Command[1..($Command.Length - 1)]
+  if ($LASTEXITCODE -ne 0) {
+    throw "Command failed with exit code $LASTEXITCODE: $($Command -join ' ')"
+  }
+}
 
 switch ($Action) {
   "render" {
     if (-not $Deck) { throw "-Deck is required for render" }
     $outDir = if ($Output) { $Output } else { "rendered" }
-    & $python "$scriptDir/render_slides.py" $Deck --output_dir $outDir
+    Invoke-CheckedCommand -Command ($pythonCmd + @("$scriptDir/render_slides.py", $Deck, "--output_dir", $outDir))
   }
   "montage" {
     if (-not $InputDir) { throw "-InputDir is required for montage" }
     $outFile = if ($Output) { $Output } else { "montage.png" }
-    & $python "$scriptDir/create_montage.py" --input_dir $InputDir --output_file $outFile
+    Invoke-CheckedCommand -Command ($pythonCmd + @("$scriptDir/create_montage.py", "--input_dir", $InputDir, "--output_file", $outFile))
   }
   "overflow" {
     if (-not $Deck) { throw "-Deck is required for overflow" }
-    & $python "$scriptDir/slides_test.py" $Deck
+    Invoke-CheckedCommand -Command ($pythonCmd + @("$scriptDir/slides_test.py", $Deck))
   }
   "fonts" {
     if (-not $Deck) { throw "-Deck is required for fonts" }
     if ($Json) {
-      & $python "$scriptDir/detect_font.py" $Deck --json
+      Invoke-CheckedCommand -Command ($pythonCmd + @("$scriptDir/detect_font.py", $Deck, "--json"))
     } else {
-      & $python "$scriptDir/detect_font.py" $Deck
+      Invoke-CheckedCommand -Command ($pythonCmd + @("$scriptDir/detect_font.py", $Deck))
     }
   }
 }
