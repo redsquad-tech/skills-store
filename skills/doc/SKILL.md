@@ -44,6 +44,10 @@ brew install libreoffice poppler
 
 # Ubuntu/Debian
 sudo apt-get install -y libreoffice poppler-utils
+
+# Windows (winget)
+winget install LibreOffice.LibreOffice
+winget install oschwartz10612.Poppler
 ```
 
 If installation isn't possible in this environment, tell the user which dependency is missing and how to install it locally.
@@ -56,15 +60,32 @@ DOCX -> PDF:
 ```
 soffice -env:UserInstallation=file:///tmp/lo_profile_$$ --headless --convert-to pdf --outdir $OUTDIR $INPUT_DOCX
 ```
+Windows equivalent:
+```powershell
+soffice --headless --convert-to pdf --outdir $env:OUTDIR $env:INPUT_DOCX
+```
 
 PDF -> PNGs:
 ```
 pdftoppm -png $OUTDIR/$BASENAME.pdf $OUTDIR/$BASENAME
 ```
+Windows equivalent:
+```powershell
+pdftoppm -png "$env:OUTDIR/$env:BASENAME.pdf" "$env:OUTDIR/$env:BASENAME"
+```
 
 Bundled helper:
 ```
 python3 scripts/render_docx.py /path/to/file.docx --output_dir /tmp/docx_pages
+```
+Windows equivalent:
+```powershell
+py -3 scripts/render_docx.py C:\path\to\file.docx --output_dir output/doc
+```
+
+Windows one-shot helper (recommended):
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/render_docx.ps1 -InputDocx C:\path\to\file.docx -OutputDir output/doc
 ```
 
 ## Quality expectations

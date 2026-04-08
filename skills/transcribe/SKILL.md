@@ -51,6 +51,15 @@ export TRANSCRIBE_CLI="$CODEX_HOME/skills/transcribe/scripts/transcribe_diarize.
 User-scoped skills install under `$CODEX_HOME/skills` (default: `~/.codex/skills`).
 
 ## CLI quick start
+Windows wrapper (PowerShell):
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/transcribe_diarize.ps1 path\to\audio.wav --out transcript.txt
+```
+
+Use this mapping for every CLI example below on Windows:
+- Unix: `python3 "$TRANSCRIBE_CLI" <args>`
+- Windows: `powershell -ExecutionPolicy Bypass -File scripts/transcribe_diarize.ps1 <args>`
+
 Single file (fast text default):
 ```
 python3 "$TRANSCRIBE_CLI" \
